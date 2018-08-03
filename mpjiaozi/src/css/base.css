@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/*通用样式*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-size: 28rpx;
+    color: #666666;
+    background: #f3f3f3;
+    font-family: "Microsoft YaHei", Helvetica, arial;
+}
+
+a {
+    text-decoration: none;
+    color: #101010;
+    outline: none;
+    font-weight: normal !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #666;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+p {
+    word-wrap: break-word;
+    padding: 0;
+    margin: 0;
+}
+
+input,
+button,
+select,
+textarea {
+    outline: none;
+    border: none;
+    font-family: inherit;
+    resize: none;
+    font-size: 100%;
+}
+
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
