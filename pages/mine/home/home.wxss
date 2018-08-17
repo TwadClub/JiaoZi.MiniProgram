@@ -1,0 +1,112 @@
+/* pages/mine/mine.wxss */
+page{
+  background: #f3f3f3;
+  min-height: 100%;
+  display: block;
+}
+.mine{
+
+}
+.mine_top{
+  height: 160rpx;
+  background: #6dc135;
+  padding: 0 30rpx;
+}
+.mine_logo{
+  width: 108rpx;
+  height: 108rpx;
+  margin-top: 26rpx;
+  border-radius: 100%;
+}
+.mine_name{
+  font-size: 32rpx;
+  line-height: 46rpx;
+  height: 46rpx;
+  margin-top: 57rpx;
+  margin-left: 16rpx;
+  color: #fff;
+  display: inline-block;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.col{
+  flex: 1;
+}
+.mine_class{
+  background: #fff;
+  /* padding: 25rpx 0rpx 15rpx; */
+}
+.item_class{
+  border-right: 1rpx solid #ddd;
+}
+.item_class:last-child{
+  border-right: none;
+}
+.int{
+  margin-top: 25rpx;
+  color: #6dc135;
+  font-size: 42rpx;
+  display: block;
+  text-align: center;
+}
+.txt{
+  margin-bottom: 15rpx;
+  display: block;
+  text-align: center;
+  color: #454545;
+  font-size: 26rpx;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.mine_type{
+  padding: 0 5%;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.type_con{
+  display: inline-block;
+  width: 41rpx;
+  text-align: center
+}
+.type_con .scan{
+  width: 39rpx;
+  height: 39rpx;
+  vertical-align: middle;
+}
+.type_con .charge{
+  width: 41rpx;
+  height: 31rpx;
+  vertical-align: middle;
+}
+.type_con .record{
+  width: 40rpx;
+  height: 33rpx;
+  vertical-align: middle;
+}
+.type_con .addre{
+  width: 35rpx;
+  height: 43rpx;
+  vertical-align: middle;
+}
+.mine_type_title{
+  font-size: 26rpx;
+  color: #454545;
+  margin-left: 32rpx;
+}
+.item_type{
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.item_type:last-child{
+  border-bottom:none;
+}
+.arrow{
+  height: 22rpx;
+  width: 12rpx;
+  margin-top: 33rpx;
+}

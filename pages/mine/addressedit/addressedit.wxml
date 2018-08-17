@@ -1,0 +1,20 @@
+<view class="edit">
+    <view class="edit_item clearfix">
+        <text class="lab fl">联系人</text>
+        <input type="text" class="input fl" placeholder="请输入联系人" />
+    </view>
+    <view class="edit_item clearfix">
+        <text class="lab fl">联系人</text>
+        <input type="text" class="input fl" placeholder="请输入联系电话" />
+    </view>
+    <view class="edit_item clearfix">
+        <text class="lab fl">地址</text>
+        <input type="text" class="input fl" placeholder="请输入配送地址" />
+        <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+    <view class="edit_item clearfix">
+        <text class="lab fl">门牌号</text>
+        <input type="text" class="input fl" placeholder="请输入门牌号" />
+    </view>
+</view>
+<button class="edit_btn" >确定</button>

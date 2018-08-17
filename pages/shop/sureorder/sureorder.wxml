@@ -1,0 +1,86 @@
+<!-- 确认订单 -->
+<view class="sureorder">
+    <view class="header">
+        <view class="header_top"></view>
+        <view class="header_bottom"></view>
+        <view class="header_content">
+            <view class="header_tabs clearfix">
+                <text class="header_tabs_title fl">配送方式</text>
+                <view class="header_tabs_way fr row">
+                    <view class="send_way {{isSelectH?'active':''}}" bindtap="sendHome">送货上门</view>
+                    <view class="send_way {{isSelectS?'active':''}}" bindtap="selfGet">到店自取</view>
+                </view>
+            </view>
+            <view class="send_time clearfix">
+                <view class="send_change fl">达达专送</view>
+                <view class="send_time_check fr">
+                    <text class="">立即送到 15:30-16:00</text>
+                    <image class="" src="../../../images/arrow-r.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="address">
+        <view class="address_info clearfix">
+            <image class="icon fl" src="../../../images/icon-address.png"></image>
+            <text class="info fl">汉街总部国际F座1006</text>
+            <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+        </view>
+        <view class="addres_del">
+            <text class="">小小苏</text>
+            <text class="">176****1123</text>
+        </view>
+    </view>
+    <view class="order_info">
+        <text class="order_info_tips">袁记水饺（楚河汉街店）</text>
+        <scroll-view class="scroll" scroll-y="true">
+            <view class="order_info_list clearfix" wx:for="{{goodsList}}">
+                <image class="item_logo fl" src="{{item.logo}}"></image>
+                <view class="column fl">
+                    <text class="title">{{item.productTitle}}</text>
+                    <text class="tips">{{item.remark}}</text>
+                    <view class="order_info_list_price">
+                        <text class="sku-price">￥</text>
+                        <text class="sku-price">{{item.salePrice}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="order_info_discount">
+            <view class="discount clearfix">
+                <text class="fl">商品金额</text>
+                <text class="fr">￥34</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl">优惠(会员日7.5折)</text>
+                <text class="fr sub_price">-￥8.5</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl">配送费</text>
+                <text class="fr">￥4</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl">餐盒费</text>
+                <text class="fr">￥4</text>
+            </view>
+        </view>
+        <view class="all_price">
+            <text class="font_nol">小计：</text>
+            <text class="sub_price font_price">￥33</text>
+        </view>
+    </view>
+    <view class="remark">
+        <text>添加订单备注</text>
+    </view>
+    <view class="footer" hover-class="none" hover-stop-propagation="false">
+        <view class="price fl" hover-class="none" hover-stop-propagation="false">
+            <text class="tip">合计：</text>
+            <text class="txt">￥</text>
+            <text class="int">25</text>
+            <text class="decimal">.00</text>
+        </view>
+        <view class="pay fl" hover-class="none" hover-stop-propagation="false">
+            <view>结算<i>1</i></view>
+        </view>
+    </view>
+</view>

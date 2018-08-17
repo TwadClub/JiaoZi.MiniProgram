@@ -1,0 +1,91 @@
+page{
+    background: #f3f3f3;
+    display: block;
+    min-height: 100%;
+}
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.top{
+    height: 208rpx;
+    background: #6dc135;
+    padding: 40rpx 30rpx 20rpx 30rpx; 
+    box-sizing: border-box;
+}
+.top_price{
+    text-align: center;
+    display: block;
+}
+.top_price .icon{
+    font-size: 34rpx;
+    color: #fff;
+}
+.top_price .price{
+    font-size: 62rpx;
+    color: #fff;
+}
+.top_txt{
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-size: 26rpx;
+}
+.row{
+    display: flex;
+    flex-direction: row; 
+}
+.con{
+    padding: 30rpx 3%;
+    margin-right: -5%;
+}
+.item_col{
+    width: 45%;
+    padding: 30rpx 0;
+    margin: 0rpx 0 30rpx 0;
+    background: #fff;
+    border-radius: 5rpx;
+    text-align: center;
+    margin-right: 5%;
+    border: 1rpx solid #ddd;
+    box-sizing:border-box;
+}
+.item_col_price{
+    font-size:32rpx;
+    display: block;
+}
+.item_col_txt{
+    font-size: 22rpx;
+    display: block;
+    color: #6dc135;
+}
+.is_active{
+    color: #6dc135;
+    border:1rpx solid  #6dc135;
+    box-sizing: border-box;
+}
+.tips{
+    padding: 0 3%;
+    font-size: 32rpx;
+    color: #454545;
+}
+.charge_btn{
+    width: 94%;
+    height: 90rpx;
+    background: #6dc135;
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 5rpx;
+    margin-top: 80rpx;
+}

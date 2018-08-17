@@ -1,0 +1,45 @@
+<!-- 商品详情 -->
+<view class="goodinfo" hover-class="none" hover-stop-propagation="false">
+    <view class="banner" hover-class="none" hover-stop-propagation="false">
+        <image class="banner-img" src="../../../images/goodinfo-banner.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="info" hover-class="none" hover-stop-propagation="false">
+            <view class="title">韭菜鲜肉饺大份</view>
+            <view class="acount clearfix">
+                <view class="txt fl">月售</view>
+                <view class="num fl">160</view>
+                <view class="txt fl">份</view>
+            </view>
+            <view class="operate clearfix" hover-class="none" hover-stop-propagation="false">
+                <view class="price fl" >
+                    <text class="txt">￥</text>
+                    <text class="int">25</text>
+                    <text class="decimal">.00</text>
+                </view>
+                <view class="ope fr clearfix" hover-class="none" hover-stop-propagation="false">
+                    <image class="sub fl" src="../../../images/icon-sub.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                    <view class="count fl" >1</view>
+                    <image class="add fl" src="../../../images/icon-add.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                </view>
+            </view>
+        </view>
+        <view class="line" hover-class="none" hover-stop-propagation="false"></view>
+    </view>
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+        <view class="good-txt" hover-class="none" hover-stop-propagation="false">
+            饺子源于古代的角子。饺子原名“娇耳”，相传是我国医圣张仲景首先发明的，距今已有一千八百多年的历史了。是深受中国人民喜爱的传统特
+        </view>
+        <image class="good-img" src="../../../images/goodinfo-01.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <image class="good-img-info" src="../../../images/goodinfo-2.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+    </view>
+    <view class="footer" hover-class="none" hover-stop-propagation="false">
+        <view class="price fl" hover-class="none" hover-stop-propagation="false">
+            <text class="tip">合计：</text>
+            <text class="txt">￥</text>
+            <text class="int">25</text>
+            <text class="decimal">.00</text>
+        </view>
+        <view class="pay fl" hover-class="none" hover-stop-propagation="false">
+            <view>结算<i>1</i></view>
+        </view>
+    </view>
+</view>

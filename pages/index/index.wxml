@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<view class="home">
+  <!-- 顶部定位 -->
+  <view class="banner">
+    <view class="address" hover-class="none" hover-stop-propagation="false">
+      <i class="icon iconfont icon-dizhi fl"></i>
+      <span class="fl">汉正街</span>
+      <i class="icon iconfont icon-sanjiao_xia fl"></i>
+    </view>
+    <view class="search" hover-class="none" hover-stop-propagation="false">
+      <i class="icon iconfont icon-iconfontzhizuobiaozhun22"></i>
+      <span>搜索</span>
+    </view>
+    <view class="banner-images" hover-class="none" hover-stop-propagation="false">
+      <image src='../../images/banner.jpg'></image>
+    </view>
+  </view>
+
+  <!-- 分类 -->
+  <view class="content" hover-class="none" hover-stop-propagation="false">
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+      <span class="line"></span>
+      <span class="txt">热卖推荐</span>
+      <span class="line"></span>
+      <view class="tips" hover-class="none" hover-stop-propagation="false">
+        纯手工制作
+      </view>
+    </view>
+
+    <view class="goods" hover-class="none" hover-stop-propagation="false">
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+      <view class="fl goods-item">
+        <image class="" src="../../images/goods-01.png"></image>
+        <view class="info">
+          <view class="tips">优惠套餐A</view>
+          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
+          <view class="price">￥18.00</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

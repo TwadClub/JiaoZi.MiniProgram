@@ -1,0 +1,9 @@
+<view class="chshop">
+    <view class="shop_item" wx:for="{{shopList}}">
+        <view class="item">
+            <text class="title">{{item.title}}</text>
+            <text class="address">{{item.address}}</text>
+        </view>
+        <image class="arrow" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+</view>

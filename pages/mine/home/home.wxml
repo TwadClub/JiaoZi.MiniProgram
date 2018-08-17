@@ -1,0 +1,51 @@
+<view class="mine">
+  <view class="mine_top clearfix">
+    <image class="mine_logo fl" src="../../../images/mine-logo.png"></image>
+    <text class="mine_name fl">小小小小苏</text>
+  </view>
+  <view class="row mine_class">
+    <view class="col item_class">
+      <text class="int">350</text>
+      <text class="txt">余额</text>
+    </view>
+    <view class="col item_class">
+      <text class="int">350</text>
+      <text class="txt">余额</text>
+    </view>
+    <view class="col item_class">
+      <text class="int">350</text>
+      <text class="txt">余额</text>
+    </view>
+  </view>
+  <view class="column mine_type">
+    <view class="col item_type">
+      <view class="type_con">
+        <image class="scan" src="../../../images/icon-scan.png"></image>
+      </view>
+      <text class="mine_type_title">扫码支付</text>
+      <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+    <view class="col item_type">
+      <view class="type_con">
+        <image class="charge" src="../../../images/icon-charge.png"></image>
+      </view>
+      <text class="mine_type_title">去充值</text>
+      <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+    <view class="col item_type">
+      <view class="type_con">
+        <image class="record" src="../../../images/icon-record.png"></image>
+      </view>
+      <text class="mine_type_title">充值记录</text>
+      <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+    <view class="col item_type">
+      <view class="type_con">
+        <image class="addre" src="../../../images/icon-addre.png"></image>
+      </view>
+      <text class="mine_type_title">充值记录</text>
+      <image class="arrow fr" src="../../../images/arrow-r-gray.png"></image>
+    </view>
+
+  </view>
+</view>

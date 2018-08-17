@@ -1,0 +1,63 @@
+page{
+    background: #f3f3f3;
+    display: block;
+    min-height: 100%;
+}
+.edit{
+    padding: 0 3%;
+    background: #fff;
+}
+.edit_item{
+    height: 104rpx;
+    border-bottom: 1rpx solid #dddddd;
+}
+.edit_item:last-child{
+    border-bottom: none;
+}
+.lab{
+    font-size: 26rpx;
+    height: 104rpx;
+    line-height: 104rpx;
+    color: #999;
+    display: inline-block;
+    width: 20%;
+    padding-left: 10rpx;
+    box-sizing: border;
+}
+.input{
+    font-size: 26rpx;
+    line-height: 104rpx;
+    height: 104rpx;
+    color: #454545;
+    width: 70%;
+    display: inline-block;
+}
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.arrow{
+    height: 22rpx;
+    width: 12rpx;
+    margin-top: 41rpx; 
+}
+.edit_btn{
+    width: 94%;
+    margin: 36rpx auto;
+    height: 90rpx;
+    background: #6dc135;
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 5rpx;
+}

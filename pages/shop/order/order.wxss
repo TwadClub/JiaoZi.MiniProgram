@@ -1,0 +1,74 @@
+/* pages/shop/order/order.wxss */
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+.fl{
+    float: left;
+}
+.shop-order{
+    font-size: 28rpx;
+}
+.shop-top{
+    background: #f5f5f5;
+    padding: 30rpx 5%;
+}
+.shop-top .shop-txt{
+    background: #f5f5f5;
+}
+.shop-top .shop-txt .logo-img{
+    float: left;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+}
+.shop-top .shop-txt .info{
+    float: left;
+    margin-left: 5%;
+    width: 68%;
+    height: 160rpx;
+}
+.shop-top .shop-txt .info .title{
+    font-size: 32rpx;
+    color: #454545;
+}
+.shop-top .shop-txt .info .address{
+    color: #666;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+.shop-top .shop-txt .info .shop-time{
+    color: #666;
+    font-size: 24rpx;
+}
+.shop-top .shop-txt .info .shop-time .business{
+    display: inline-block;
+    padding: 0rpx 10rpx;
+    margin-left: 5rpx;
+    border: 0.01rem solid #6dc135;
+    color: #6dc135;
+    border-radius: 5rpx;
+}
+.shop-top .search{
+    height: 48rpx;
+    margin: 15rpx auto 0 auto;
+    width: 100%;
+    border-radius: 20rpx;
+    background: #fff;
+    text-align: center;
+}
+.shop-top .search image{
+    display: inline-block;
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+}
+.shop-top .search span{
+    display: inline-block;
+    color: #999;
+    margin-left: 10rpx;
+    vertical-align: middle;
+}

@@ -1,0 +1,42 @@
+.search_top{
+    height: 54rpx;
+    border-radius: 30rpx;
+    width: 94%;
+    margin: 18rpx 3%;
+    background: #f5f5f5;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.icon_search{
+    width: 26rpx;
+    height: 27rpx;
+    vertical-align: middle
+}
+.search_txt{
+    color: #999;
+    display: inline-block;
+    font-size: 24rpx;
+    vertical-align: middle;
+    margin-left: 14rpx;
+    width: 85%;
+}
+.search_near{
+    margin-top: 30rpx;
+    padding: 0 3%;
+}
+.search_near_title{
+    font-size: 24rpx;
+    color: #999;
+}
+.search_near_con{
+    margin-top: 30rpx;
+}
+.naer_item{
+    font-size: 24rpx;
+    padding: 15rpx 20rpx;
+    border-radius: 8rpx;
+    border: 1rpx solid #ddd;
+    margin-right: 20rpx;
+    color: #454545;
+    display:inline-block;
+}

@@ -1,0 +1,29 @@
+.chshop{
+    padding: 0 3%;
+}
+.shop_item{
+    padding: 25rpx 0;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+}
+.title{
+    display: block;
+    width: 85%;
+    color: #454545;
+    font-size: 26rpx;
+}
+.address{
+    display: block;
+    width: 85%;
+    color: #999;
+    font-size: 22rpx;
+    margin-top: 15rpx;
+}
+.arrow{
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    height: 22rpx;
+    width: 12rpx;
+    margin-top: -11rpx;
+}

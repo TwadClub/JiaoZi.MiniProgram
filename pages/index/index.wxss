@@ -1,0 +1,97 @@
+/**index.wxss**/
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+.fl{
+    float: left;
+}
+
+.home{
+  font-size: 28rpx;
+}
+.banner{
+    position: relative;
+}
+.banner .address{
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    color: #fff;
+}
+.banner .search{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 300rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    background: #ccc;
+    line-height: 60rpx;
+    text-align: center;
+    color: #fff;
+}
+.banner .banner-images{
+    width: 100%;
+    display: block;
+}
+
+.banner .banner-images image{
+    width: 100%;
+    display: block;
+}
+.content .title{
+    text-align: center;
+    padding: 30rpx 0 0 0;
+}
+.content .title .line {
+    margin: 0 10rpx;
+    display: inline-block;
+    height: 2rpx;
+    width: 40rpx;
+    background: #000;
+    vertical-align: middle;
+}
+.content .title .txt{
+    font-size: 36rpx;
+    color: #666;
+    display: inline-block;
+    vertical-align: middle;
+}
+.content .title .tips{
+
+}
+
+
+.content  .goods{
+    padding: 5%;
+    background: #fff;
+    margin-right: -5%;
+}
+.content  .goods .goods-item{
+    width: 45%;
+    margin-right: 5%;
+    margin-bottom: 20rpx;
+}
+
+.content  .goods .goods-item image{
+    width: 100%;
+    height: 300rpx;
+    border-radius: 20rpx;
+}
+
+.content  .goods .goods-item .info .tips {
+    font-size: 32rpx;
+    color: #000;
+}
+
+.content  .goods .goods-item .info .info{
+    color: #666;
+}
+.content  .goods .goods-item .info .price{
+    color: #ff9600;
+    font-size: 32rpx;
+}

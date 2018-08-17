@@ -1,0 +1,50 @@
+.top{
+    padding: 15rpx 3%;
+}
+.top_in{
+    height: 56rpx;
+    background: #f5f5f5;
+    border-radius: 5rpx;
+    padding: 0 20rpx;
+    width: 75%;
+    box-sizing: border-box
+}
+.icon_search{
+    width: 26rpx;
+    height: 27rpx;
+    vertical-align: middle;
+}
+.top_in_txt{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15rpx;
+    width: 85%;
+    font-size: 24rpx;
+    color: #999;
+}
+.top_btn{
+    width: 20%;
+    height: 56rpx;
+    background: #6dc135;
+    font-size: 26rpx;
+    color: #fff;
+    border-radius: 5rpx;
+    line-height: 56rpx;
+}
+.search_list{
+    width: 94%;
+    margin: 0 3%;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #ddd;
+}
+.titel{
+    font-size: 26rpx;
+    color: #454545;
+    display: block;
+}
+.info{
+    font-size: 22rpx;
+    color: #999;
+    display: block;
+    margin-top: 5rpx;
+}

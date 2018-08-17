@@ -1,0 +1,28 @@
+<!-- 点餐主页 -->
+<view class="shop-order" hover-class="none" hover-stop-propagation="false">
+    <view class="shop-top">
+        <view class="shop-txt clearfix" bindtap="navPage">
+            <image class="" src="../../../images/logo.jpg" lazy-load="false" class="logo-img"></image>
+            <view class="info">
+                <view class="title">袁记饺子(楚河汉街店)</view>
+                <view class="address">地址：武汉市武昌区楚河汉街汉街总部国际F座1006</view>
+                <view class="shop-time">营业时间：06:00-20:30
+                    <em class="business">营业中</em>
+                </view>
+            </view>
+        </view>
+        <view class="search">
+            <image class="" src="../../../images/search.png" lazy-load="false" ></image>
+            <span>搜索</span>
+        </view>
+    </view>
+    <view class="session" hover-class="none" hover-stop-propagation="false">
+        <view class="business-right" hover-class="none" hover-stop-propagation="false">
+        
+        </view>
+        <view class="business-left" hover-class="none" hover-stop-propagation="false">
+        
+        </view>
+    </view>
+
+</view>

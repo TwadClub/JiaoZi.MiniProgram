@@ -1,0 +1,27 @@
+page{
+    background: #fff;
+    display: block;
+    min-height: 100%;
+}
+.chargerecord{
+    
+}
+.record{
+    height: 88rpx;
+    padding: 0 3%;
+    border-bottom: 1rpx solid #dddddd; 
+}
+.record_time{
+    height: 88rpx;
+    display: block;
+    line-height: 88rpx;
+    color: #454545;
+    font-size: 22rpx;
+}
+.record_price{
+    height: 88rpx;
+    display: block;
+    line-height: 88rpx;
+    color: #6dc135;
+    font-size: 22rpx;
+}

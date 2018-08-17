@@ -1,0 +1,134 @@
+/* pages/shop/goodinfo/goodinfo.wxss */
+.clearfix:after {
+    height: 0rem;
+    display: block;
+    clear: both;
+    visibility: hidden;
+    content: "\0020";
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.goodinfo{
+    padding-bottom: 98rpx;
+}
+.goodinfo .banner{
+        
+}
+.goodinfo .banner .banner-img{
+    width: 100%;
+    display: block;
+}
+.goodinfo .banner .info{
+    padding: 30rpx 5%;
+}
+.goodinfo .banner .info .title{
+    font-size: 38rpx;
+    color: #000;
+}
+.goodinfo .banner .info .acount{
+    font-size: 22rpx;
+    color: #999;
+    margin: 5rpx 0;
+}
+.goodinfo .banner .info .operate{
+
+}
+.goodinfo .banner .info .operate .price .txt{
+    font-size: 26rpx;
+    color: #ff9600
+}
+.goodinfo .banner .info .operate .price .int{
+    font-size: 40rpx;
+    color: #ff9600
+}
+.goodinfo .banner .info .operate .price .decimal{
+    font-size: 26rpx;
+    color: #ff9600
+}
+.goodinfo .banner .info .operate .price 
+.goodinfo .banner .info .operate .ope{
+    height: 50rpx;
+}
+.goodinfo .banner .info .operate .ope .sub{
+    width: 50rpx;
+    height: 50rpx;
+}
+.goodinfo .banner .info .operate .ope .add{
+    width: 50rpx;
+    height: 50rpx;
+}
+.goodinfo .banner .info .operate .ope .count{
+    padding: 0 20rpx;
+}
+.goodinfo .banner .line{
+    height: 28rpx;
+    background: #f3f3f3;
+}
+.goodinfo .content{
+
+}
+.goodinfo .content .good-txt{
+    padding: 25rpx 6%;
+    font-size: 26rpx;
+    color: #999;
+}
+.goodinfo .content .good-img{
+    width: 100%;
+    display: block;
+}
+.goodinfo .content .good-img-info{
+    padding: 5%;
+    width: 90%;
+}
+.goodinfo .footer{
+    height: 98rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
+    border-top: 1rpx solid #ddd;
+}
+.goodinfo .footer .price{
+    width: 65%;
+    background: #fff;
+    height: 98rpx;
+    line-height: 98rpx;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+.goodinfo .footer .pay{
+    width: 35%;
+    background: #6dc135;
+    height: 98rpx;
+    line-height: 98rpx;
+}
+.goodinfo .footer .pay view{
+    font-size: 30rpx;
+    background: #6dc135;
+    color: #fff;
+    text-align: center;
+}
+.goodinfo .footer .price .tip{
+    font-size: 30rpx;
+    color: #666;
+}
+.goodinfo .footer .price .txt{
+    font-size: 26rpx;
+    color: #ff9600
+}
+.goodinfo .footer .price .int{
+    font-size: 40rpx;
+    color: #ff9600
+}
+.goodinfo .footer .price .decimal{
+    font-size: 40rpx;
+    color: #ff9600
+}
+.goodinfo .footer .pay{
+
+}

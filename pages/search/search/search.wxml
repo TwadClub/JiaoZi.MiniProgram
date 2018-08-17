@@ -1,0 +1,18 @@
+<view class="search">
+    <view class="search_top">
+        <image class="icon_search" src="../../../images/search.png"></image>
+        <input type="text" class="search_txt" placeholder="请输入商品名称" />
+    </view>
+    <view class="search_near">
+        <view class="search_near_title">最近搜索</view>
+        <view class="search_near_con">
+            <text class="naer_item" wx:for="{{nearHistory}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="search_near">
+        <view class="search_near_title">热门搜索</view>
+        <view class="search_near_con">
+            <text class="naer_item" wx:for="{{hotHistory}}">{{item}}</text>
+        </view>
+    </view>
+</view>
