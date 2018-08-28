@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      imgUrl: 'http://image.twad.club/',
       nearHistory:["玉米饺子","云吞","饺子"],
       hotHistory:["玉米饺子","云吞","饺子"]
     },

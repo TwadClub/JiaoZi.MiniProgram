@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    imgUrl:'http://image.twad.club/',
     //轮播图
     imgUrls: [
       '../../images/1.png',

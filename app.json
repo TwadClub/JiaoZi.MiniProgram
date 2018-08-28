@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/mine/home/home",
     "pages/search/searchshop/searchshop",
     "pages/search/search/search",
     "pages/chshop/chshop",
     "pages/mine/chargerecord/chargerecord",
     "pages/mine/charge/charge",
     "pages/mine/addresslist/addresslist",
-    "pages/mine/home/home",
     "pages/shop/sureorder/sureorder",
     "pages/index/index",
     "pages/shop/order/order",
