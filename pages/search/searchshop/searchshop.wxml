@@ -1,7 +1,7 @@
 <view class="search_shop">
     <view class="top clearfix">
         <view class="fl top_in">
-            <image class="icon_search" src="../../../images/search.png"></image>
+            <image class="icon_search" src="{{imgUrl+'search.png'}}"></image>
             <input type="text" class="top_in_txt" placeholder="请输入小区/学校/写字楼等"/>
         </view>
         <button class="fr top_btn">搜索</button>

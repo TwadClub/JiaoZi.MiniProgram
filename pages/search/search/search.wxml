@@ -1,6 +1,6 @@
 <view class="search">
     <view class="search_top">
-        <image class="icon_search" src="../../../images/search.png"></image>
+        <image class="icon_search" src="{{imgUrl+'search.png'}}"></image>
         <input type="text" class="search_txt" placeholder="请输入商品名称" />
     </view>
     <view class="search_near">

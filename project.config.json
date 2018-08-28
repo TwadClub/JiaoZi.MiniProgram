@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
-	"appid": "wx6b828390c364f240",
-	"projectname": "jiaozi",
+	"libVersion": "2.2.3",
+	"appid": "wx4d9cf8e37e8715d0",
+	"projectname": "%E6%B5%8B%E8%AF%95",
 	"condition": {
 		"search": {
 			"current": -1,

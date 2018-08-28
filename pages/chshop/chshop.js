@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      imgUrl: 'http://image.twad.club/',
       shopList:[
         {
           title: "袁记饺子知音路店",
