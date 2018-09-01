@@ -29,5 +29,36 @@ class agriknow {
     }
     return this._request.postRequest(this._baseUrl + '/api/services/app/WX/SaveUserWXInfo?openID='+ openID, data).then(res => res.data)
   }
+
+  // 首页接口
+  /**
+   * 获取首页推荐商品
+   */
+  getIndexGoods () {
+    let data = {
+      // openID: openID
+  }
+  return this._request.getRequest(this._baseUrl + '/api/services/app/ProductInfo/GetIndexProductIndex', data).then(res => res.data)
+  }
+
+  /**
+   * 获取首页分类
+   */
+  getIndexClass () {
+    let params = {
+
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/ProductCategory/GetAllCategory', params).then(res => res.data)
+  }
+
+
+
+  // 充值
+  chargeMoney (shopID) {
+    let params = {
+      "shopID": shopID
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/Recharge/GetRechargeList', params).then(res => res.data)
+  }
 }
 export default agriknow

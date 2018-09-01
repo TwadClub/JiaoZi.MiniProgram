@@ -6,18 +6,33 @@ Page({
      */
     data: {
       imgUrl: 'http://image.twad.club/',
+      
       shopList:[
         {
-          title: "袁记饺子知音路店",
-          address: '武汉市汉阳区知音路慈安医院斜对面'
+          name: "小小酥",
+          tel: '15900057112',
+          address: '武汉市汉阳区知音路慈安医院斜对面武汉市汉阳区知音路慈安医院斜对面',
+          isChoose: false,
         },{
-          title: "袁记饺子知音路店",
-          address: '武汉市汉阳区知音路慈安医院斜对面'
+          name: "小小酥",
+          tel: '15900057112',
+          address: '武汉市汉阳区知音路慈安医院斜对面',
+          isChoose: false,
         },{
-          title: "袁记饺子知音路店",
-          address: '武汉市汉阳区知音路慈安医院斜对面'
+          name: "小小酥",
+          tel: '15900057112',
+          address: '武汉市汉阳区知音路慈安医院斜对面',
+          isChoose: false,
         }
-      ]
+      ],
+      outAddress:[
+        {
+          name: "小小酥",
+          tel: '15900057112',
+          address: '武汉市汉阳区知音路慈安医院斜对面武汉市汉阳区知音路慈安医院斜对面',
+          isChoose: false,
+        }
+      ],
     },
   
     /**
@@ -25,7 +40,7 @@ Page({
      */
     onLoad: function (options) {
       wx.setNavigationBarTitle({
-        title: '选择门店'
+        title: '选择地址'
       })
       this.setData({
         // cartList: wx.getStorageSync('cartList'),
@@ -34,6 +49,20 @@ Page({
         // cupNumber: wx.getStorageSync('cupNumber'),
       })
       
+    },
+
+    // 选中地址
+    chooseAddress (e){
+      let index = e.target.dataset.index;
+      this.data.shopList.map((it,i) => {
+        if (i == index) {
+          it.isChoose = !it.isChoose;
+        }
+      })
+      console.log(this.data.shopList)
+      this.setData({
+        shopList: this.data.shopList
+      })
     },
 
     /**

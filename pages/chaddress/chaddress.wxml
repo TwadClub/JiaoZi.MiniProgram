@@ -1,0 +1,33 @@
+<view class="chaddress">
+    <view class="shop_item clearfix" wx:for="{{shopList}}">
+        <image class="choose_logo" bindtap="chooseAddress" data-item="{{item}}" data-index="{{index}}" src="{{item.isChoose?imgUrl+'select_select.png':imgUrl+'select_normal.png'}}"></image>
+        <view class="shop_item_con fl">
+            <text class="name">{{item.name}}</text>
+            <text class="tel">{{item.tel}}</text>
+            <view class="" >
+                <text class="address">{{item.address}}</text>
+            </view>
+        </view>
+        <view class="operate" >
+            <image class="edit" src="{{imgUrl+'gray-edit.png'}}"></image>
+            <image class="delete" src="{{imgUrl+'gray-close.png'}}"></image>
+        </view>
+    </view>
+</view>
+<view class="seprate">以下地址超过配送范围</view>
+<view class="chaddress">
+    <view class="shop_item clearfix" wx:for="{{outAddress}}">
+        <image class="choose_logo" bindtap="chooseAddress" data-item="{{item}}" data-index="{{index}}" src="{{item.isChoose?imgUrl+'select_select.png':imgUrl+'select_normal.png'}}"></image>
+        <view class="shop_item_con fl">
+            <text class="name">{{item.name}}</text>
+            <text class="tel">{{item.tel}}</text>
+            <view class="" >
+                <text class="address">{{item.address}}</text>
+            </view>
+        </view>
+        <view class="operate" >
+            <image class="edit" src="{{imgUrl+'gray-edit.png'}}"></image>
+            <image class="delete" src="{{imgUrl+'gray-close.png'}}"></image>
+        </view>
+    </view>
+</view>

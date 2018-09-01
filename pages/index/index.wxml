@@ -28,52 +28,12 @@
     </view>
 
     <view class="goods" hover-class="none" hover-stop-propagation="false">
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
+      <view class="fl goods-item" wx:for="{{indexGoods}}">
+        <image class="" src="{{item.logo}}"></image>
         <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
-        </view>
-      </view>
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
-        <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
-        </view>
-      </view>
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
-        <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
-        </view>
-      </view>
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
-        <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
-        </view>
-      </view>
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
-        <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
-        </view>
-      </view>
-      <view class="fl goods-item">
-        <image class="" src="{{imgUrl+'goods-01.png'}}"></image>
-        <view class="info">
-          <view class="tips">优惠套餐A</view>
-          <view class="info">玉米鲜肉饺+凉拌毛豆</view>
-          <view class="price">￥18.00</view>
+          <view class="tips">{{item.productTitle}}</view>
+          <view class="info">{{item.remark}}</view>
+          <view class="price">￥{{item.picture}}</view>
         </view>
       </view>
     </view>

@@ -11,7 +11,7 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res);
+        // console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.getOpenID(res.code)
       }
@@ -52,10 +52,10 @@ App({
           'content-type': 'application/json'
       },
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         // that.setOpenID(res.data.openid)
         that.allreq.setOpenID(res.data.openid).then(res => {
-          console.log(res)
+          // console.log(res)
         })
         // that.getToken()
         // openid = res.data.openid //返回openid

@@ -1,16 +1,25 @@
 <!--pages/order/list/list.wxml-->
-<view>
-   <view class='go-center' style='margin-top:10px'>
-      <view class='tab-box'>
-        <view  bindtap='changeTab' data-index="0" class="go-center {{tabIndex==0?'active-color':'unactive-color'}}"  style='width:50%'>即时订单</view>
-        <view bindtap='changeTab' data-index="1" class="go-center {{tabIndex==1?'active-color':'unactive-color'}}" style='width:50%'>预约订单</view>
+<view class="order_list" wx:for="{{list}}">
+  <view class="order_top clearfix">
+    <image class="logo fl" src="{{item.logo}}"></image>
+    <view class="info fl">
+      <view class="info_title">
+        <text class="info_title_tip">{{item.shopName}}</text>
+        <image class="info_title_logo" src="{{ imgUrl +'arrow-r-gray.png'}}"></image>
       </view>
-   </view>
-   <view class='go-center' style="margin-top:100px">
-      <i class="iconfont icon-dingdan dindgan-i" ></i>
-   </view>
-   <view class='go-center note-btn'>目前没有即时订单</view>
-   <view class='go-center' style='margin-top:20px' >
-     <view class='go-center down-center start-btn' bindtap='golist'>开始点餐</view>
-   </view>
+      <text class="info_time">{{item.createTime}}</text>
+    </view>
+    <text class="order_status fr" wx:if="{{item.orderStatus== 0}}">待支付</text>
+    <text class="order_status fr" wx:if="{{item.orderStatus== 1}}">已完成</text>
+    <text class="order_status fr" wx:if="{{item.orderStatus== 2}}">已取消</text>
+  </view>
+  <view class="order_center clearfix">
+    <text class="goodsinfo fl">{{item.goods[0].value}}等{{item.goods.length}}件商品</text>
+    <text class="price fr">{{item.price}}</text>
+  </view>
+  <view class="order_center clearfix">
+    <text class="operate_btn {{item.orderStatus==0?active:''}} fr" wx:if="{{item.orderStatus== 0}}">去支付</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 1}}">再来一单</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 2}}">再来一单</text>
+  </view>
 </view>

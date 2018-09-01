@@ -7,11 +7,11 @@
         <text class="top_txt">账户余额</text>
     </view>
     <view class="con clearfix">
-        <view class="item_col fl {{isCheck==1?'is_active':''}}" data-index='1' bindtap="isCheckFun">
-            <text class="item_col_price">200元</text>
-            <text class="item_col_txt">送10元</text>
+        <view wx:for="{{chargeList}}" class="item_col fl {{item.isCheck==1?'is_active':''}}" data-item='{{item}}' bindtap="isCheckFun">
+            <text class="item_col_price">{{item.payAmount}}元</text>
+            <text class="item_col_txt">送{{item.giftAmount}}元</text>
         </view>
-        <view class="item_col fl {{isCheck==2?'is_active':''}}" data-index='2' bindtap="isCheckFun">
+        <!-- <view class="item_col fl {{isCheck==2?'is_active':''}}" data-index='2' bindtap="isCheckFun">
             <text class="item_col_price">300元</text>
             <text class="item_col_txt">送15元</text>
         </view>
@@ -22,7 +22,7 @@
         <view class="item_col fl {{isCheck==4?'is_active':''}}" data-index='4' bindtap="isCheckFun">
             <text class="item_col_price">500元</text>
             <text class="item_col_txt">送30元</text>
-        </view>
+        </view> -->
     </view>
     <view class="tips">注：充值后余额只能在本分店使用，可线上支付和扫描支付。</view>
     <button class="charge_btn">充值</button>
