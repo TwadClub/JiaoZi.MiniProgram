@@ -1,7 +1,7 @@
 <view class="mine">
   <view class="mine_top clearfix">
-    <image class="mine_logo fl" src="{{imgUrl+'mine-logo.png'}}"></image>
-    <text class="mine_name fl">小小小小苏</text>
+    <image class="mine_logo fl" src="{{userInfo.avatarUrl}}"></image>
+    <text class="mine_name fl">{{userInfo.nickName}}</text>
   </view>
   <view class="row mine_class">
     <view class="col item_class">
@@ -10,11 +10,11 @@
     </view>
     <view class="col item_class">
       <text class="int">350</text>
-      <text class="txt">余额</text>
+      <text class="txt">会员日</text>
     </view>
     <view class="col item_class">
       <text class="int">350</text>
-      <text class="txt">余额</text>
+      <text class="txt">折扣</text>
     </view>
   </view>
   <view class="column mine_type">

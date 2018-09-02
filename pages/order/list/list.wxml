@@ -15,11 +15,11 @@
   </view>
   <view class="order_center clearfix">
     <text class="goodsinfo fl">{{item.goods[0].value}}等{{item.goods.length}}件商品</text>
-    <text class="price fr">{{item.price}}</text>
+    <text class="price fr">￥{{item.price}}</text>
   </view>
   <view class="order_center clearfix">
-    <text class="operate_btn {{item.orderStatus==0?active:''}} fr" wx:if="{{item.orderStatus== 0}}">去支付</text>
-    <text class="operate_btn fr" wx:if="{{item.orderStatus== 1}}">再来一单</text>
-    <text class="operate_btn fr" wx:if="{{item.orderStatus== 2}}">再来一单</text>
+    <text class="operate_btn fr {{item.orderStatus== 0?active:''}}" wx:if="{{item.orderStatus== 0}}" bindtap="wxCharge">去支付</text>
+    <text class="operate_btn {{item.orderStatus==1?active:''}} fr" wx:if="{{item.orderStatus== 1}}">再来一单</text>
+    <text class="operate_btn {{item.orderStatus==2?active:''}} fr" wx:if="{{item.orderStatus== 2}}">再来一单</text>
   </view>
 </view>

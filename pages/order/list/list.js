@@ -1,4 +1,6 @@
 // pages/order/list/list.js
+import allreq from '../../../request/allrequest'
+const app = getApp()
 Page({
 
   /**
@@ -73,5 +75,35 @@ Page({
     wx.navigateTo({
       url: '../../list/list'
     })
+  },
+  wxCharge() {
+    let params = {
+      id: 2,
+      type: 1,
+      shopID: wx.getStorageSync('shopID'),
+      userID: wx.getStorageSync('userID')
+
+    }
+    app.allreq.wxCharge(params).then( res => {
+      let paySign = JSON.parse(res.result.payJson)
+      console.log(paySign);
+      this.startWXPay(paySign)
+    })
+  },
+  // 发起支付
+  startWXPay(res) {
+    wx.requestPayment(
+      {
+      'timeStamp': res.timeStamp,
+      'nonceStr': res.nonceStr,
+      'package': res.package,
+      'signType': 'MD5',
+      'paySign': res.paySign,
+      'success':function(res){
+        console.log(res);
+      },
+      'fail':function(res){},
+      'complete':function(res){}
+      })
   },
 })

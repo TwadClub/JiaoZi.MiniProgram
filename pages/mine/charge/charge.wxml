@@ -25,5 +25,5 @@
         </view> -->
     </view>
     <view class="tips">注：充值后余额只能在本分店使用，可线上支付和扫描支付。</view>
-    <button class="charge_btn">充值</button>
+    <button class="charge_btn" bindtap="wxCharge">充值</button>
 </view>

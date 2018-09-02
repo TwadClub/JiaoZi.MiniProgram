@@ -6,6 +6,7 @@ page{
 .order_list{
   padding: 30rpx 3%;
   background: #fff;
+  margin-bottom: 10rpx;
 }
 .order_top{}
 .logo{
@@ -47,20 +48,27 @@ page{
   color: #6dc135;
 }
 .order_center{
-
+  margin-top: 10rpx;
 }
 .operate_btn{
   color: #666;
   font-size: 26rpx;
+  border: 1rpx solid #dfdfdf;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
 }
 .active{
   color: #6dc135;
+  border: 1rpx solid #6dc135;
 }
 .goodsinfo{
   font-size: 28rpx;
   color: #454545;
+  padding-left:82rpx;
 }
 .price{
   font-size: 28rpx;
-  color: #ff9600;
+  color: #454545;
 }

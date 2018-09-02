@@ -67,7 +67,7 @@
 
 
 .content  .goods{
-    padding: 5%;
+    padding: 5% 5% 0 5%;
     background: #fff;
     margin-right: -5%;
 }
@@ -82,16 +82,82 @@
     height: 300rpx;
     border-radius: 20rpx;
 }
+.content  .goods .goods-item .info{
+    position: relative;
+}
 
 .content  .goods .goods-item .info .tips {
     font-size: 32rpx;
     color: #000;
+    width: 80%;
 }
 
 .content  .goods .goods-item .info .info{
     color: #666;
+    height: 36rpx;
+    line-height: 36rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
 }
 .content  .goods .goods-item .info .price{
     color: #ff9600;
     font-size: 32rpx;
+}
+.content  .goods .goods-item .info .add{
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    right: 0;
+    top: 18%;
+} 
+
+.home_class{
+    background: #f3f3f3;
+    padding: 30rpx 5% 0 5%;
+    margin-right: -7%;
+}
+.home_class_item{
+    width: 28%;
+    height: 135rpx;
+    margin-right: 5%;
+    margin-bottom: 30rpx;
+}
+.home_class_item image{
+    display: block;
+    height: 135rpx;
+    width: 100%;
+}
+
+.carPop{
+    position: fixed;
+    right: 5%;
+    bottom: 11%;
+    background: rgba(0, 0, 0, 0.6);
+    height: 86rpx;
+    width: 86rpx;
+    border-radius: 100%;
+}
+.carPop .logo{
+    width: 39rpx;
+    height: 39rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -19.5rpx;
+    margin-top: -19.5rpx;
+}
+.carPop .count{
+    height: 26rpx;
+    width: 26rpx;
+    background: #ff9600;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 26rpx;
+    color: #fff;
+    font-size: 20rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

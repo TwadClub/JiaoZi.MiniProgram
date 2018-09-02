@@ -3,7 +3,7 @@
     <view class="goodcar-operate clearfix">
         <view class="goodcar-operate-check fl">
             <label for="checkall">
-                <image class="item-allselect" bindtap="allSelect" src="{{isAllChecked?'../../../images/select_select.png':'../../../images/select_normal.png'}}"
+                <image class="item-allselect" bindtap="allSelect" src="{{isAllChecked? imgUrl + 'select_select.png': imgUrl + 'select_normal.png'}}"
                 />
                 <span class="all">全选</span>
                 <span class="count">已选
@@ -17,9 +17,9 @@
     <view class="goodcar-content" hover-class="none" hover-stop-propagation="false">
         <scroll-view class="scroll" scroll-y="true">
             <!-- <view class="separate"></view> -->
-            <view wx:for="{{cartArr}}" class="scroll-item">
+            <view wx:for="{{cartArr}}" wx:key="index" class="scroll-item">
                 <view class="cart_container">
-                    <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isChecked?'../../../images/select_select.png':'../../../images/select_normal.png'}}"
+                    <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" data-goodID="{{item.id}}" src="{{item.isChecked? imgUrl + 'select_select.png': imgUrl + 'select_normal.png'}}"
                     />
                     <image class="item-image" src="{{item.logo}}"></image>
                     <view class="column">
@@ -30,9 +30,9 @@
                             <text class="sku-price">{{item.salePrice}}</text>
                             <view class="sku">
                                 <view class="quality">
-                                    <image class="sub fl" src="../../../images/icon-sub.png" bindtap="subQuality" wx:if="{{!item.subFlag}}" data-index="{{index}}" data-id="{{index}}"></image>
+                                    <image class="sub fl" src="{{imgUrl + 'icon-sub.png'}}" bindtap="subQuality" wx:if="{{!item.subFlag}}" data-index="{{index}}" data-id="{{index}}"></image>
                                     <view class="count fl" wx:if="{{!item.subFlag}}">{{item.quality}}</view>
-                                    <image class="add fl" src="../../../images/icon-add.png" bindtap="addQuality" data-index="{{index}}" data-id="{{index}}"></image>
+                                    <image class="add fl" src="{{imgUrl + 'icon-add.png'}}" bindtap="addQuality" data-index="{{index}}" data-id="{{index}}"></image>
                                 </view>
                             </view>
                         </view>
@@ -64,7 +64,7 @@
                 <text class="decimal">.00</text>
             </text>
         </view>
-        <view class="pay fl" hover-class="none" hover-stop-propagation="false">
+        <view class="pay fl" bindtap="createOrder">
             <view>结算<i>({{allNum}})</i></view>
         </view>
     </view>

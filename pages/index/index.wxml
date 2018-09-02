@@ -15,9 +15,15 @@
       <image src="{{imgUrl+'banner.jpg'}}"></image>
     </view>
   </view>
+  
+  <view class="home_class clearfix">
+    <view class="home_class_item fl" wx:for="{{indexClass}}" wx:key="index">
+      <image class="" src="{{item.categoryLogo}}"></image>
+    </view>
+  </view>
 
   <!-- 分类 -->
-  <view class="content" hover-class="none" hover-stop-propagation="false">
+  <view class="content clearfix" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
       <span class="line"></span>
       <span class="txt">热卖推荐</span>
@@ -27,17 +33,23 @@
       </view>
     </view>
 
-    <view class="goods" hover-class="none" hover-stop-propagation="false">
-      <view class="fl goods-item" wx:for="{{indexGoods}}">
+    <view class="goods clearfix" hover-class="none" hover-stop-propagation="false">
+      <view class="fl goods-item" wx:for="{{indexGoods}}" wx:key="index" data-item="{{item}}">
         <image class="" src="{{item.logo}}"></image>
         <view class="info">
           <view class="tips">{{item.productTitle}}</view>
           <view class="info">{{item.remark}}</view>
-          <view class="price">￥{{item.picture}}</view>
+          <view class="price">￥{{item.salePrice}}</view>
+          <image class="add" src="{{imgUrl + 'icon-add.png'}}" bindtap="addGood" data-item="{{item}}"></image>
         </view>
       </view>
     </view>
 
+  </view>
+
+  <view class="carPop" bindtap="pageChange">
+    <image class="logo" src="{{ imgUrl + 'ProductCategory/icon-car.png'}}"></image>
+    <text class="count">{{carGoodsCount}}</text>
   </view>
 
 </view>

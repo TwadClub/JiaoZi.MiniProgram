@@ -7,7 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-      chargeList: []
+      chargeList: [],
+      payItem:null
     },
   
     /**
@@ -20,7 +21,9 @@ Page({
       this.setData({
         // isCheck:this.data.isCheck,
       })
-      this.chargeMoney(1);
+      let shopID = wx.getStorageSync('shopID');
+      console.log(shopID)
+      this.chargeMoney(shopID);
       
     },
 
@@ -28,6 +31,7 @@ Page({
     isCheckFun(e) {
       console.log(e)
       let item = e.currentTarget.dataset.item;
+      this.data.payItem = item;
       let id  = item.id;
       this.data.chargeList.map((item) => {
         if (item.id !== id) {
@@ -38,7 +42,8 @@ Page({
       })
       console.log(this.data.chargeList)
       this.setData({
-        chargeList: this.data.chargeList
+        chargeList: this.data.chargeList,
+        payItem: this.data.payItem
       })
     },
 
@@ -49,15 +54,51 @@ Page({
           res.result.map((item,i)=> {
             if (i ==0) {
               item.isCheck = true
+              this.data.payItem = item;
             } else {
               item.isCheck = false
             }
           })
           this.setData({
-            chargeList:res.result
+            chargeList:res.result,
+            payItem:this.data.payItem
           })
         }
       })
+    },
+
+    wxCharge() {
+      console.log(this.data.payItem);
+      let params = {
+        id: this.data.payItem.id,
+        type: 2,
+        shopID: wx.getStorageSync('shopID'),
+        userID: wx.getStorageSync('userID')
+
+      }
+      app.allreq.wxCharge(params).then( res => {
+        let paySign = JSON.parse(res.result.payJson)
+        console.log(paySign);
+        this.startWXPay(paySign)
+      })
+    },
+    
+
+    // 发起支付
+    startWXPay(res) {
+      wx.requestPayment(
+        {
+        'timeStamp': res.timeStamp,
+        'nonceStr': res.nonceStr,
+        'package': res.package,
+        'signType': 'MD5',
+        'paySign': res.paySign,
+        'success':function(res){
+          console.log(res);
+        },
+        'fail':function(res){},
+        'complete':function(res){}
+        })
     },
 
     /**

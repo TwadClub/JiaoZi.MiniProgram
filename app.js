@@ -7,13 +7,14 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         // console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.getOpenID(res.code)
+        this.getShopID();
+        // this.getUserID();
       }
     })
     // 获取用户信息
@@ -26,6 +27,8 @@ App({
               // console.log(res);
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
+              this.saveUserInfo(res.userInfo)
+              // console.log(this.globalData.userInfo)
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -53,15 +56,27 @@ App({
       },
       success: function(res) {
         // console.log(res)
-        // that.setOpenID(res.data.openid)
+        wx.setStorageSync('openID', res.data.openid)
         that.allreq.setOpenID(res.data.openid).then(res => {
           // console.log(res)
+        })
+        that.allreq.getUserID(res.data.openid).then(res => {
+          // console.log(res)
+          that.getUserID(res.result)
+          
         })
         // that.getToken()
         // openid = res.data.openid //返回openid
       }
     })
   },
+
+  // 根据openID获取userID
+  // getUserID (openID) {
+  //   that.allreq.getUserID(openID).then(res => {
+  //     console.log(res)
+  //   })
+  // },
   
   // 获取access_token
   getToken() {
@@ -72,7 +87,7 @@ App({
           'content-type': 'application/json'
       },
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         // openid = res.data.openid //返回openid
       }
     })
@@ -87,10 +102,30 @@ App({
           'content-type': 'application/json'
       },
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         // openid = res.data.openid //返回openid
       }
     })
+  },
+
+  // 获取店铺ID
+  getShopID () {
+    wx.setStorageSync('shopID', 1)
+  },
+
+  // 获取用户ID
+  getUserID (userID) {
+    wx.setStorageSync('userID', userID)
+  },
+
+  // 缓存openID
+  storageOpenID (openID) {
+    wx.setStorageSync('openID', openID)
+  },
+
+  // 保存全局用户信息
+  saveUserInfo (userInfo) {
+    wx.setStorageSync('userInfo', userInfo);
   },
   allreq:new allreq()
 })
