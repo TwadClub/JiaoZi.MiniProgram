@@ -1,5 +1,5 @@
 //app.js
-
+const mtjwxsdk = require("./utils/mtj-wx-sdk.js");
 import allreq from './request/allrequest'
 App({
   onLaunch: function () {
