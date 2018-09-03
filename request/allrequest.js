@@ -7,7 +7,7 @@
 import request from './request.js'
 class agriknow {
   constructor() {
-    this._baseUrl = 'http://jzapi.twad.club'
+    this._baseUrl = 'https://jzapi.twad.club'
     this._defaultHeader = { 'Content-Type': 'application/json' }
     this._request = new request
     this._request.setErrorHandler(this.errorHander)
