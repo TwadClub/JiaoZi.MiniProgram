@@ -1,4 +1,5 @@
 //app.js
+const ald = require('./utils/ald-stat.js')
 const mtjwxsdk = require("./utils/mtj-wx-sdk.js");
 import allreq from './request/allrequest'
 App({
