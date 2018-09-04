@@ -2,7 +2,7 @@
 //获取应用实例
 import allreq from '../../request/allrequest'
 const app = getApp()
-
+var template = require('../template/template.js');
 Page({
   data: {
     imgUrl:'http://image.twad.club/',
@@ -22,6 +22,10 @@ Page({
     carGoodsCount: 0,
   },
   onLoad: function () {
+    template.tabbar("tabBar", 0, this)
+    wx.showLoading({
+      title: '加载中',
+    })
     setTimeout( _ => {
       this.getIndexGoods(wx.getStorageSync('shopID'));
     },0)
@@ -45,6 +49,7 @@ Page({
   getIndexClass () {
     app.allreq.getIndexClass().then( res => {
       if (res.success) {
+        wx.hideLoading()
         this.setData({
           indexClass: res.result
         })

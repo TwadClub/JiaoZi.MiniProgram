@@ -1,3 +1,5 @@
+<import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
 <view class="mine">
   <view class="mine_top clearfix">
     <image class="mine_logo fl" src="{{userInfo.avatarUrl}}"></image>
@@ -32,7 +34,7 @@
       <text class="mine_type_title">去充值</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
     </view>
-    <view class="col item_type">
+    <view class="col item_type" bindtap="chargeRecord">
       <view class="type_con">
         <image class="record" src="{{imgUrl+'icon-record.png'}}"></image>
       </view>

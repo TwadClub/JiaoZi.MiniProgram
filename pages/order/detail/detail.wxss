@@ -2,83 +2,168 @@
 page{
   background:#F8F8F8
 }
-.card-fetch{
-  width:40px;
-  background:#DE5F4B;
-  height:100px;
-  font-size:14px;
-  color:white;
+
+.order_info {
+  width: 90%;
+  margin: 25rpx auto;
+  background: #fff;
+  border-radius: 5rpx;
 }
-.card-box{
-  display:flex;
-  width:80%;
-  height:100px;
-  background:#FEF9F4;
+
+.order_info_tips {
+  padding: 30rpx 30rpx;
 }
-.card-left-bar{
-  width:14px;
-  padding:20px 14px;
+.order_info_tips .shop_tips{
+  font-size: 28rpx;
+  color: #454545;
+  display: block;
 }
-.order-info{
-  background: white;
-  margin-top:10px;
+.order_info_tips .order_txt{
+  font-size: 26rpx;
+  color: #454545;
 }
-.order-info-title{
-  font-size:12px;
-  color: #D1D1D1;
-  padding: 12px;
-  border-bottom: 1px #E3E3E3 solid
+.scroll{
+  margin: 0rpx 5%;
+  width: 90%;
+  padding: 30rpx 0rpx;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
 }
-.order-sum{
-  height:30px;
-  padding:5px 15px;
-  font-size:14px;
+.order_info_list{
+  position: relative;
+  margin: 12rpx 0
 }
-.order-sum-number{
-  font-size:14px;
-  float:right;
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rpx;
+  max-width: 70%;
 }
-.list-info{
-  width:50%;
-  padding:5px 15px;
+
+.title {
+  font-size: 26rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #454545;
 }
-.list-info-size{
-  font-size:12px;
-  color:#B1B1B1;
+.tips{
+  font-size: 26rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+  color: #999
 }
-.activity-color{
-  color:#FF9C35;
+.item_logo{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
 }
-.cart-list-box{
-  background:#FFFFFF;
-  display:flex;
-  font-size:15px;
-  border-bottom:1px #E3E3E3 solid;
+.order_info_list_price{
+  position: absolute;
+  right: 0;
+  bottom: 0rpx;
 }
-.note-exchange{
-  padding:3px 5px;
-  border:1px solid #FF9C35;
-  color:#FF9C35;
-  font-size:16px
+.order_info_list_price .sku-price{
+  font-size: 26rpx;
+  color: #454545;
 }
-.order-info-li{
-  color:black;
-  margin-left:10px;
+.order_info_discount{
+  margin: 0rpx 5%;
+  width: 90%;
+  padding: 30rpx 0rpx;
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
 }
-.note-card{
-  margin-left:20px;
-  color:#A2A1A0;
-  font-size:12px;
-  margin-top:15px
+.discount{
+  margin: 12rpx 0;
 }
-.statu-card{
-  font-size:12px;
-  color:#FF9C35
+.discount text{
+  font-size: 26rpx;
+  color: #454545;
 }
-.number-card{
-  font-size:28px;
-  padding:0px 20px
+.sub_price{
+  color: #ff9600;
 }
-.go-top-10{
-  margin-top:10px
+.all_price{
+  margin: 0rpx 5%;
+  width: 90%;
+  padding: 30rpx 0rpx;
+  text-align: right;
 }
+.all_price .font_nol{
+  font-size: 26rpx;
+  color: #454545;
+}
+.all_price .font_price{
+  font-size: 32rpx;
+  color: #ff9600;
+}
+.remark{
+  margin: 0rpx 5%;
+  width: 90%;
+  text-align: center;
+}
+.remark text{
+  font-size: 22rpx;
+  color: #666;
+  margin: 10rpx 0;
+}
+
+.send_info{
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 5rpx;
+}
+.model_title{
+  padding: 30rpx 30rpx;
+  font-size: 28rpx;
+  color: #454545;
+  display: block;
+}
+.model_content{
+  border-top: 1rpx solid #ddd;
+  margin:0 5%;
+  padding: 30rpx 0;
+}
+.model_content_lab{
+  width: 25%;
+  font-size: 26rpx !important;
+  color: #999 !important;
+}
+.model_content_txt{
+  width: 60%;
+  font-size: 26rpx;
+  color: #454545;
+}
+.client_name, .client_address{
+  display: block;
+}
+.send_info{
+  margin-bottom: 25rpx;
+}
+.discount .copy{
+  font-size: 20rpx;
+  color: #454545;
+  padding:2rpx 10rpx;
+  display: inline-block;
+  border: 1rpx solid #e5e4e3;
+}
+
+.pay_model{
+  width: 85%;
+  margin: 30rpx auto 40rpx auto;
+}
+.pay_model .pay{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background: #6dc135;
+  font-size: 32rpx;
+  text-align: center;
+  display: block;
+  border-radius: 5rpx;
+}
+

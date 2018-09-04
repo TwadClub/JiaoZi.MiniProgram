@@ -1,4 +1,7 @@
 /* pages/shop/order/order.wxss */
+page{
+    padding-bottom: 96rpx;
+}
 .clearfix:after {
     height: 0rem;
     display: block;

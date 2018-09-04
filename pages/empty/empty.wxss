@@ -1,0 +1,22 @@
+page{
+    background: #f3f3f3;
+    height: 100%;
+}
+.empty{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+}
+.logo{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+.tips{
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 30rpx;
+    display: block;
+}

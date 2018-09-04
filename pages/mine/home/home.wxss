@@ -3,6 +3,7 @@ page{
   background: #f3f3f3;
   min-height: 100%;
   display: block;
+  /* padding-bottom: 96rpx; */
 }
 .mine{
 

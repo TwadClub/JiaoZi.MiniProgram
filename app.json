@@ -1,10 +1,12 @@
 {
   "pages":[
+    "pages/order/list/list",
+    "pages/order/detail/detail",
+    "pages/empty/empty",
+    "pages/mine/home/home",
     "pages/index/index",
     "pages/shop/sureorder/sureorder",
     "pages/shop/goodcar/goodcar",
-    "pages/mine/home/home",
-    "pages/order/list/list",
     "pages/mine/charge/charge",
     "pages/chaddress/chaddress",
     "pages/chshop/chshop",
@@ -16,44 +18,12 @@
     "pages/shop/goodinfo/goodinfo",
     "pages/logs/logs",
     "pages/list/list",
-    "pages/order/balance/balance",
-    "pages/order/detail/detail"
+    "pages/order/balance/balance"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#6dc135",
     "navigationBarTitleText": "袁记饺子",
     "navigationBarTextStyle":"white"
-  },
-    "tabBar": {
-      "color": "#8a8a8a",
-      "selectedColor": "#6dc135",
-      "borderStyle": "black",
-      "list": [
-        {
-          "selectedIconPath": "images/home_02.png",
-          "iconPath": "images/home_01.png",
-          "pagePath": "pages/index/index",
-          "text": "首页"
-        },
-        {
-          "selectedIconPath": "images/meal_02.png",
-          "iconPath": "images/meal_01.png",
-          "pagePath": "pages/shop/order/order",
-          "text": "点餐"
-        },
-        {
-          "selectedIconPath": "images/order_02.png",
-          "iconPath": "images/order_01.png",
-          "pagePath": "pages/mine/home/home",
-          "text": "订单"
-        },
-        {
-          "selectedIconPath": "images/person_02.png",
-          "iconPath": "images/person_01.png",
-          "pagePath": "pages/mine/home/home",
-          "text": "我的"
-        }
-      ]
-    }
+  } 
 }

@@ -2,7 +2,7 @@
  * name: request.js
  * description: 微信request封装
  * author: 徐瑞
- * date: 2018-5-19
+ * date: 2018-8-19
  */
 class request {
     constructor() {

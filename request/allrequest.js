@@ -2,7 +2,7 @@
  * name: agriknow.js
  * description: 袁记饺子店服务
  * author: 徐瑞
- * date: 2018-5-19
+ * date: 2018-8-19
  */
 import request from './request.js'
 class agriknow {
@@ -100,6 +100,26 @@ class agriknow {
   return this._request.postRequest(this._baseUrl + '/api/services/app/OrderInfo/CreateOrder', data).then(res => res.data)
  }
 
+ /**
+  * 订单列表
+  */
+ getOrderList(params) {
+  let data = {
+    ShopID:params.ShopID,
+    UserID:params.UserID
+  }
+  return this._request.getRequest(this._baseUrl + '/api/services/app/OrderInfo/GetOrderList', data).then(res => res.data)
+ }
+
+ /**
+  * 订单详情商品
+  */
+ getOrderDetail(params) {
+  let data = {
+    orderID: params
+  }
+  return this._request.getRequest(this._baseUrl + '/api/services/app/OrderInfo/GetOrderDetail', data).then(res => res.data)
+ }
 
   // 获取充值列表
   chargeMoney (shopID) {

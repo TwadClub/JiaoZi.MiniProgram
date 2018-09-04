@@ -1,25 +1,27 @@
 <!--pages/order/list/list.wxml-->
-<view class="order_list" wx:for="{{list}}">
+<import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
+<view class="order_list" wx:for="{{list}}" wx:key="{{index}}">
   <view class="order_top clearfix">
-    <image class="logo fl" src="{{item.logo}}"></image>
-    <view class="info fl">
+    <image class="logo fl" src="{{item.orderDetails[0].logo}}"></image>
+    <view class="info fl" bindtap="pageChange">
       <view class="info_title">
-        <text class="info_title_tip">{{item.shopName}}</text>
+        <text class="info_title_tip">{{item.orderCode}}</text>
         <image class="info_title_logo" src="{{ imgUrl +'arrow-r-gray.png'}}"></image>
       </view>
-      <text class="info_time">{{item.createTime}}</text>
+      <text class="info_time">{{item.creationTime}}</text>
     </view>
     <text class="order_status fr" wx:if="{{item.orderStatus== 0}}">待支付</text>
-    <text class="order_status fr" wx:if="{{item.orderStatus== 1}}">已完成</text>
-    <text class="order_status fr" wx:if="{{item.orderStatus== 2}}">已取消</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 1}}">已完成</text>
+    <text class="order_status cel fr" wx:if="{{item.orderStatus== 2}}">已取消</text>
   </view>
   <view class="order_center clearfix">
-    <text class="goodsinfo fl">{{item.goods[0].value}}等{{item.goods.length}}件商品</text>
-    <text class="price fr">￥{{item.price}}</text>
+    <text class="goodsinfo fl">{{item.orderDetails[0].productName}}等{{item.orderDetails.length}}件商品</text>
+    <text class="price fr">￥{{item.shouldPayAmount}}</text>
   </view>
   <view class="order_center clearfix">
-    <text class="operate_btn fr {{item.orderStatus== 0?active:''}}" wx:if="{{item.orderStatus== 0}}" bindtap="wxCharge">去支付</text>
-    <text class="operate_btn {{item.orderStatus==1?active:''}} fr" wx:if="{{item.orderStatus== 1}}">再来一单</text>
-    <text class="operate_btn {{item.orderStatus==2?active:''}} fr" wx:if="{{item.orderStatus== 2}}">再来一单</text>
+    <text class="operate_btn fr active" wx:if="{{item.orderStatus== 0}}" bindtap="wxCharge">去支付</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 1}}">再来一单</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 2}}">再来一单</text>
   </view>
 </view>

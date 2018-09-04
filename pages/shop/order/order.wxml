@@ -1,4 +1,6 @@
 <!-- 点餐主页 -->
+<import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
 <view class="shop-order" hover-class="none" hover-stop-propagation="false">
     <view class="shop-top">
         <view class="shop-txt clearfix" bindtap="navPage">

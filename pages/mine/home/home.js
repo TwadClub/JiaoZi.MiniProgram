@@ -1,6 +1,7 @@
 // pages/mine/home/home.js
 import allreq from '../../../request/allrequest'
 const app = getApp()
+var template = require('../../template/template.js');
 Page({
 
   /**
@@ -15,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    template.tabbar("tabBar", 3, this)
     var that=this;
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
@@ -24,7 +26,16 @@ Page({
 
   // 跳充值页面
   goCharge() {
+    wx.navigateTo({
+      url: '../charge/charge'
+    })
+  },
 
+  // 跳充值记录
+  chargeRecord () {
+    wx.navigateTo({
+      url: '../chargerecord/chargerecord'
+    })
   }
  
 

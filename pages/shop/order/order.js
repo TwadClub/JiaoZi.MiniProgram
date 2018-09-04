@@ -1,4 +1,7 @@
 // pages/shop/order/order.js
+import allreq from '../../../request/allrequest'
+const app = getApp()
+var template = require('../../template/template.js');
 Page({
 
     /**
@@ -12,8 +15,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      template.tabbar("tabBar", 1, this)
       wx.setNavigationBarTitle({
-        title: '订单详情'
+        title: '袁记水饺'
       })
       this.setData({
         // cartList: wx.getStorageSync('cartList'),
