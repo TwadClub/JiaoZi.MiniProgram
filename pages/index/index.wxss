@@ -72,11 +72,17 @@ page{
 .content  .goods{
     padding: 5% 5% 0 5%;
     background: #fff;
-    margin-right: -5%;
+    display: -webkit-box;
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex;
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
 }
 .content  .goods .goods-item{
-    width: 45%;
-    margin-right: 5%;
+    width: 47%;
     margin-bottom: 20rpx;
 }
 
@@ -85,24 +91,28 @@ page{
     height: 300rpx;
     border-radius: 20rpx;
 }
+.content  .goods .goods-item image.goods_logo{
+    height: 300rpx !important;
+}
 .content  .goods .goods-item .info{
     position: relative;
 }
 
 .content  .goods .goods-item .info .tips {
-    font-size: 32rpx;
+    font-size: 28rpx;
     color: #000;
     width: 80%;
 }
 
 .content  .goods .goods-item .info .info{
-    color: #666;
     height: 36rpx;
     line-height: 36rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 80%;
+    font-size: 22rpx;
+    color: #999;
 }
 .content  .goods .goods-item .info .price{
     color: #ff9600;
@@ -119,18 +129,36 @@ page{
 .home_class{
     background: #f3f3f3;
     padding: 30rpx 5% 0 5%;
-    margin-right: -7%;
+    display: -webkit-box;
+    display: -moz-box; 
+    display: -webkit-flex; 
+    display: -moz-flex;
+    display: -ms-flexbox; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
 }
+
 .home_class_item{
-    width: 28%;
+    width: 30%;
     height: 135rpx;
-    margin-right: 5%;
     margin-bottom: 30rpx;
+    position: relative;
 }
 .home_class_item image{
     display: block;
     height: 135rpx;
     width: 100%;
+    border-radius:8rpx;
+}
+.home_class_item .tips{
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translate(0,-50%);
+    font-size: 28rpx;
+    color: #fff;
 }
 
 .carPop{

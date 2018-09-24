@@ -1,40 +1,53 @@
 // pages/mine/addresslist/addresslist.js
+import allreq from '../../../request/allrequest'
+import util from '../../../utils/util'
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-      recordList:[
-        {
-          time:'2018-08-16',
-          money:'300'
-        },{
-          time:'2018-08-16',
-          money:'300'
-        },{
-          time:'2018-08-16',
-          money:'300'
-        }
-      ]
+      recordList:[]
     },
   
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      wx.setNavigationBarTitle({
-        title: '选择地址'
+      wx.showLoading({
+        title: '加载中'
       })
+      wx.setNavigationBarTitle({
+        title: '充值记录'
+      })
+      let params = {
+        shopID: wx.getStorageSync('shopID'),
+        userID: wx.getStorageSync('userID')
+      }
+      this.getChargeRecord(params);
       this.setData({
-        // cartList: wx.getStorageSync('cartList'),
-        // sumMonney: wx.getStorageSync('sumMonney'),
-        // cutMonney: wx.getStorageSync('sumMonney')>19?3:0,
-        // cupNumber: wx.getStorageSync('cupNumber'),
+
       })
       
     },
 
+    // 获取充值记录列表
+    getChargeRecord(params) {
+      app.allreq.getChargeRecord(params).then( res => {
+        console.log(res);
+        wx.hideLoading();
+        if (res.success) {
+          res.result.map(item => {
+            item.creationTime = util.formatTime(item.creationTime,'-')
+          })
+          this.setData({
+            recordList: res.result
+          })
+        }
+      })
+    },
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

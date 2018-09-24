@@ -12,24 +12,31 @@
                 </view>
             </view>
             <view class="send_time clearfix">
-                <view class="send_change fl">达达专送</view>
-                <view class="send_time_check fr">
-                    <text class="">立即送到 15:30-16:00</text>
-                    <image class="" src="{{imgUrl + 'arrow-r.png'}}"></image>
+                <view class="send_change fl" wx:if="{{isSelectH}}">达达专送</view>
+                <view class="send_time_check fr" bindtap="">
+                    <picker class="" mode="time" range="[00]" range-key="" value="{{stratTime}}" 
+                    bindchange="chooseTime" bindcancel="">
+                        <text class="">{{sendTxt}} {{stratTime}}</text>
+                        <image class="" src="{{imgUrl + 'arrow-r.png'}}"></image>
+                    </picker>
                 </view>
+                
             </view>
         </view>
     </view>
-    <view class="address">
+    <view class="address" wx:if='{{isDefaultAddress&&isSelectH}}'>
         <view class="address_info clearfix">
             <image class="icon fl" src="{{ imgUrl + 'icon-address.png'}}"></image>
-            <text class="info fl">汉街总部国际F座1006</text>
+            <text class="info fl">{{addressInfo.addressInfo}}</text>
             <image class="arrow fr" src="{{ imgUrl + 'arrow-r-gray.png'}}"></image>
         </view>
         <view class="addres_del">
-            <text class="">小小苏</text>
-            <text class="">176****1123</text>
+            <text class="">{{addressInfo.name}}</text>
+            <text class="">{{addressInfo.phone}}</text>
         </view>
+    </view>
+    <view class="address_new" bindtap="chooseAddress" wx:if="{{!isDefaultAddress&&isSelectH}}">
+        <text class="address_btn">+添加收货地址</text>
     </view>
     <view class="order_info">
         <text class="order_info_tips">袁记水饺（楚河汉街店）</text>
@@ -48,25 +55,26 @@
         </scroll-view>
         <view class="order_info_discount">
             <view class="discount clearfix">
-                <text class="fl">商品金额</text>
-                <text class="fr">￥34</text>
+                <text class="fl lab_txt">商品金额</text>
+                <text class="fr">￥{{goodsDiscount.goodsPrice}}</text>
             </view>
             <view class="discount clearfix">
-                <text class="fl">优惠(会员日7.5折)</text>
-                <text class="fr sub_price">-￥8.5</text>
+                <text class="fl lab_txt" wx:if="{{goodsDiscount.discount == 0}}">优惠(非会员无折扣)</text>
+                <text class="fl lab_txt" wx:if="{{goodsDiscount.discount !== 0}}">优惠(会员日{{goodsDiscount.discount}}折)</text>
+                <text class="fr sub_price">-￥{{goodsDiscount.discountPrice}}</text>
             </view>
             <view class="discount clearfix">
-                <text class="fl">配送费</text>
-                <text class="fr">￥4</text>
+                <text class="fl lab_txt">配送费</text>
+                <text class="fr">￥{{goodsDiscount.sendPrice}}</text>
             </view>
             <view class="discount clearfix">
-                <text class="fl">餐盒费</text>
-                <text class="fr">￥4</text>
+                <text class="fl lab_txt">餐盒费</text>
+                <text class="fr">￥{{goodsDiscount.packagePrice}}</text>
             </view>
         </view>
         <view class="all_price">
             <text class="font_nol">小计：</text>
-            <text class="sub_price font_price">￥33</text>
+            <text class="sub_price font_price">￥{{orderPrice}}</text>
         </view>
     </view>
     <view class="remark">
@@ -76,11 +84,11 @@
         <view class="price fl" hover-class="none" hover-stop-propagation="false">
             <text class="tip">合计：</text>
             <text class="txt">￥</text>
-            <text class="int">25</text>
-            <text class="decimal">.00</text>
+            <text class="int">{{orderPrice}}</text>
+            <!-- <text class="decimal">.00</text> -->
         </view>
         <view class="pay fl" bindtap="createOrder">
-            <view>结算<i>1</i></view>
+            <view>结算<i></i></view>
         </view>
     </view>
 </view>

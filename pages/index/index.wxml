@@ -1,26 +1,27 @@
 <!--index.wxml-->
 <import src="../template/template.wxml"/>
 <template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
-<view class="home">
+<view class="home" wx:if="{{show}}">
   <!-- 顶部定位 -->
   <view class="banner">
     <view class="address" hover-class="none" hover-stop-propagation="false">
       <i class="icon iconfont icon-dizhi fl"></i>
-      <span class="fl">汉正街</span>
+      <span class="fl">袁记饺子—龙阳店</span>
       <i class="icon iconfont icon-sanjiao_xia fl"></i>
     </view>
-    <view class="search" hover-class="none" hover-stop-propagation="false">
+    <!-- <view class="search" hover-class="none" hover-stop-propagation="false">
       <i class="icon iconfont icon-iconfontzhizuobiaozhun22"></i>
       <span>搜索</span>
-    </view>
-    <view class="banner-images" hover-class="none" hover-stop-propagation="false">
-      <image src="{{imgUrl+'banner.jpg'}}"></image>
+    </view> -->
+    <view class="banner-images" >
+      <image src="{{imgUrl+'banner.jpg'}}" mode="widthFix"></image>
     </view>
   </view>
   
-  <view class="home_class clearfix">
-    <view class="home_class_item fl" wx:for="{{indexClass}}" wx:key="index">
-      <image class="" src="{{item.categoryLogo}}"></image>
+  <view class="home_class flex_box">
+    <view class="home_class_item flex" wx:for="{{indexClass}}" wx:key="index" data-item="{{item}}" bindtap="pageToOrder">
+      <image class="" src="{{item.categoryLogo}}" mode="widthFix"></image>
+      <text class="tips">{{item.categoryName}}</text>
     </view>
   </view>
 
@@ -35,9 +36,9 @@
       </view>
     </view>
 
-    <view class="goods clearfix" hover-class="none" hover-stop-propagation="false">
-      <view class="fl goods-item" wx:for="{{indexGoods}}" wx:key="index" data-item="{{item}}">
-        <image class="" src="{{item.logo}}"></image>
+    <view class="goods" hover-class="none" hover-stop-propagation="false">
+      <view class="goods-item" wx:for="{{indexGoods}}" wx:key="index" data-item="{{item}}">
+        <image class="" src="{{item.logo}}" mode="widthFix" class="goods_logo"></image>
         <view class="info">
           <view class="tips">{{item.productTitle}}</view>
           <view class="info">{{item.remark}}</view>

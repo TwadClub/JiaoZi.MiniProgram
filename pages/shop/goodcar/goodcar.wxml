@@ -30,9 +30,9 @@
                             <text class="sku-price">{{item.salePrice}}</text>
                             <view class="sku">
                                 <view class="quality">
-                                    <image class="sub fl" src="{{imgUrl + 'icon-sub.png'}}" bindtap="subQuality" wx:if="{{!item.subFlag}}" data-index="{{index}}" data-id="{{index}}"></image>
+                                    <image class="sub fl" src="{{imgUrl + 'icon-sub.png'}}" bindtap="subQuality" wx:if="{{!item.subFlag}}" data-item="{{item}}" data-index="{{index}}" data-id="{{index}}"></image>
                                     <view class="count fl" wx:if="{{!item.subFlag}}">{{item.quality}}</view>
-                                    <image class="add fl" src="{{imgUrl + 'icon-add.png'}}" bindtap="addQuality" data-index="{{index}}" data-id="{{index}}"></image>
+                                    <image class="add fl" src="{{imgUrl + 'icon-add.png'}}" bindtap="addQuality" data-index="{{index}}" data-id="{{index}}" data-item="{{item}}"></image>
                                 </view>
                             </view>
                         </view>
@@ -42,14 +42,14 @@
             </view>
         </scroll-view>
     </view>
-    <view class="bottom_info row">
+    <!-- <view class="bottom_info row">
         <text class="bottom_txt">已享受</text>
         <text class="bottom_price">7.5</text>
         <text class="bottom_txt">折优惠,</text>
         <text class="bottom_txt">优惠</text>
         <text class="bottom_price">8.5</text>
         <text class="bottom_txt">元</text>
-    </view>
+    </view> -->
     <view class="footer" hover-class="none" hover-stop-propagation="false">
         <view class="price fl" hover-class="none" hover-stop-propagation="false">
             <text class="tip">合计：</text>
@@ -70,9 +70,7 @@
     </view>
 </view>
 
-<view class="goodcar_empty" wx:if="{{isEmpty}}">
-    <image class="empty_logo" src="../../../images/empty.png" mode="widthFix" lazy-load="false">
-        
-    </image>
-    <view class="empty_txt">还没有选购商品</view>
+<view class="empty" wx:if="{{isEmpty}}">
+    <image class="logo" mode="widthFix" src="{{ imgUrl + 'icon-empty.png'}}"></image>
+    <text class="tips">亲，购物车还没有宝贝哦～</text>
 </view>

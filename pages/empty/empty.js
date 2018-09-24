@@ -18,6 +18,12 @@ Page({
   onLoad: function (options) {
       this.data.title = '购物车'
       this.data.tips = '亲，购物车还没有宝贝哦～'
+    let params = wx.getStorageSync('toEmpty');
+    if (params) {
+      params = JSON.parse(params);
+      this.data.title = params.title;
+      this.data.tips = params.tips;
+    }
     wx.setNavigationBarTitle({
         title: this.data.title
     })

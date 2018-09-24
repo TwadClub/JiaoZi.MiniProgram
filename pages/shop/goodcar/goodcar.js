@@ -24,8 +24,9 @@ Page({
       wx.setNavigationBarTitle({
         title: '购物车'
       })
-      let orderDataList = JSON.parse(wx.getStorageSync('carGoodsList'));
+      let orderDataList = wx.getStorageSync('carGoodsList');
       if (orderDataList) {
+        orderDataList = JSON.parse(orderDataList);
         orderDataList.map( item => {
           item.isChecked = false;
         })
@@ -33,10 +34,10 @@ Page({
           orderDataList:orderDataList
         })
       }
-      // console.log(orderDataList)
-      let goodsIDList = JSON.parse(wx.getStorageSync('carGoodsList'));
-      console.log(goodsIDList)
+      let goodsIDList = wx.getStorageSync('carGoodsList');
+      console.log('---' + goodsIDList)
       if (goodsIDList) {
+        goodsIDList = JSON.parse(goodsIDList)
         let goIDList = []
         goodsIDList.map(item => {
           goIDList.push(item.id)
@@ -47,6 +48,10 @@ Page({
           goodsIDList:goIDList
         }
         this.getGoodsListInfo(params)
+      } else {
+        this.setData({
+          isEmpty:true
+        })
       }
     },
 
@@ -188,17 +193,26 @@ Page({
     /**减少数量 */
     subQuality(e) {
       let index  = e.target.dataset.index;
+      let item = e.target.dataset.item;
       this.data.cartArr[index].quality --;
       if (this.data.cartArr[index].quality <= 0) {
         this.data.cartArr[index].subFlag = true;
         this.data.cartArr[index].quality = 0
         this.data.cartArr[index].isChecked = false;
         this.data.isAllChecked = false;
+        this.data.orderDataList.splice(index,1)
+        this.data.cartArr.splice(index,1);
+      }
+      if (this.data.orderDataList.length<=0) {
+        this.data.isEmpty = true;
+        this.data.orderDataList = []
       }
       this.setData({
         cartArr: this.data.cartArr,
-        isAllChecked: this.data.isAllChecked
+        isAllChecked: this.data.isAllChecked,
+        isEmpty: this.data.isEmpty,
       })
+      wx.setStorageSync('carGoodsList', JSON.stringify(this.data.orderDataList))
       this.getAllPrice()
     },
 
@@ -210,17 +224,36 @@ Page({
         cartArr:this.data.cartArr,
         isEmpty: this.data.isEmpty
       })
+      wx.removeStorageSync('carGoodsList');
     },
 
     /**生成订单 */
     createOrder() {
       console.log(this.data.orderDataList)
+      if (this.data.allNum<=0) {
+        wx.showToast({
+          title: '亲，赶快选择购买的商品吧！',
+          icon: 'none'
+        })
+        return false
+      }
+      let flag = false;
       let dataList = [] 
       this.data.orderDataList.map((item,i) => {
         if (item.isChecked) {
           dataList.push(item)
+          flag = true
         }
       })
+
+      if (!flag) {
+        wx.showToast({
+          title: '亲，赶最少购买一件商品哦！',
+          icon: 'none'
+        })
+        return false
+      }
+
       console.log(dataList)
       wx.setStorageSync('createOrderData',JSON.stringify(dataList))
       wx.navigateTo({
@@ -229,7 +262,7 @@ Page({
     },
 
 
-        wxCharge() {
+    wxCharge() {
       console.log(this.data.payItem);
       let params = {
         id: this.data.payItem.id,
@@ -274,7 +307,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-    
+      // this.initIndexCar(); 
     },
   
     /**

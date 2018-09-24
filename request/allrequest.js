@@ -18,6 +18,9 @@ class agriknow {
    */
   errorHander(res) {
     console.error(res)
+    wx.showToast({
+      title:res.data.error.message
+    })
   }
 
   /**
@@ -46,7 +49,7 @@ class agriknow {
    */
   getIndexGoods (shopID) {
     let data = {
-      shopID: shopID
+      shopID: 1
     }
     console.log(shopID)
     return this._request.getRequest(this._baseUrl + '/api/services/app/ProductInfo/GetIndexProductIndex', data).then(res => res.data)
@@ -81,23 +84,42 @@ class agriknow {
    * 订单创建
   */
  createOrder(params) {
+   let url = ''
    let data = {
-      "sendWay": "1",
+      "sendWay": params.sendWay,
       "sendAddress": params.sendAddress,
       "jd": 0,
       "wd": 0,
       "receiveName": params.receiveName,
       "receivePhone": params.receivePhone,
       "remark": "string",
-      "wantReceiveTime": "2018-09-02T12:39:06.897Z",
+      "wantReceiveTime": params.wantReceiveTime,
       "shopID": wx.getStorageSync('shopID'),
       "userID": wx.getStorageSync('userID'),
       "openID": wx.getStorageSync('openID'),
       "outAmount": 0,
-      "payWay": "1",
+      "payWay": params.payWay,
       "orderProductList":params.orderProductList
   }
-  return this._request.postRequest(this._baseUrl + '/api/services/app/OrderInfo/CreateOrder', data).then(res => res.data)
+  if (params.payWay == 1) {
+    url = '/api/services/app/OrderInfo/CreateOrder'
+  } else {
+    url = '/api/services/app/OrderInfo/CreateOrder'
+  }
+  return this._request.postRequest(this._baseUrl + url, data).then(res => res.data)
+ }
+
+ /**
+  * 余额支付
+  */
+ balanceAmount(params) {
+  let data = {
+    "id": params,
+    "type": 1,
+    "shopID": wx.getStorageSync('shopID'),
+    "userID": wx.getStorageSync('userID')
+  }
+  return this._request.postRequest(this._baseUrl + '/api/services/app/WX/BalancePay', data).then(res => res.data)
  }
 
  /**
@@ -129,9 +151,126 @@ class agriknow {
     return this._request.getRequest(this._baseUrl + '/api/services/app/Recharge/GetRechargeList', params).then(res => res.data)
   }
 
+  /**
+   * 获取充值记录列表
+   */
+  getChargeRecord(params) {
+    let data = {
+      shopID:params.shopID,
+      userID:params.userID
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/Recharge/GetRechargeOrder', data).then(res => res.data)
+  }
+
+  /**
+   * 获取收货地址列表
+   */
+  getAddressList (params) {
+    let data = {
+      ShopID: params.ShopID,
+      UserID : params.UserID
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/UserAddress/GetAll', data).then(res => res.data)
+  }
+
+  /**
+   * 查询地址信息
+   */
+  getAddressInfo(id){
+    let data = {
+      Id: id,
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/UserAddress/Get', data).then(res => res.data)
+  }
+
+  /**
+   * 编辑地址
+   */
+  editAddress(item){
+    return this._request.putRequest(this._baseUrl + '/api/services/app/UserAddress/Update', item).then(res => res.data)
+  }
+
+  /**
+   * 新增收货地址
+   */ 
+  newAddress(params) {
+    let data = {
+      shopID: wx.getStorageSync('shopID'),
+      userID: wx.getStorageSync('userID'),
+      name: params.name,
+      phone: params.phone,
+      addressInfo: params.addressInfo
+    }
+    return this._request.postRequest(this._baseUrl + '/api/services/app/UserAddress/Create', data).then(res => res.data)
+  }
+
+  /**
+   * 删除地址
+   */
+  deleteAddress(id) {
+    let data = {
+    }
+    return this._request.deleteRequest(this._baseUrl + '/api/services/app/UserAddress/Delete?Id=' + id, data).then(res => res.data)
+  }
+
+  /**
+   * 获取店铺用户信息
+   */
+  getShopUserInfo() {
+    let data = {
+      userID: wx.getStorageSync('userID'),
+      shopID: wx.getStorageSync('shopID')
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/ShopUserAppService/GetShopUserVipInfo', data).then(res => res.data)
+  }
+
+  /**
+   * 获取分类详情
+   */
+  getOrderClassList(params) {
+    if (!params) {
+      params.ProductName = '',
+      params.ProductCategoryID = ''
+    }
+    let data = {
+      ProductName: params.ProductName,
+      ProductCategoryID: params.ProductCategoryID,
+      ShopID: wx.getStorageSync('shopID')
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/ProductInfo/GetProductList', data).then(res => res.data)
+  }
+
+  /**
+   * 是否是VipDtae
+   */
+  isVipDate() {
+    let data = {
+      userID: wx.getStorageSync('userID')
+    }
+    return this._request.postRequest(this._baseUrl + '/api/services/app/ShopUserAppService/IsShopUserVipData', data).then(res => res.data)
+  }
+
   // 微信充值
   wxCharge(params) {
     return this._request.postRequest(this._baseUrl + '/api/services/app/WX/PrePay', params).then(res => res.data)
   }
+
+  // 获取店铺信息
+  getShopInfo() {
+    let data = {
+      id: wx.getStorageSync('shopID')
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/ShopInfo/Get', data).then(res => res.data)
+  }
+
+  // 获取消费记录列表
+  getConsumeList(params){
+    let data = {
+      userID: params.userID,
+      shopID: params.shopID
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/ShopUserAppService/GetUserAccountChangeLog', data).then(res => res.data)
+  }
+
 }
 export default agriknow

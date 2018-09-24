@@ -1,6 +1,6 @@
 <view class="chargerecord">
-    <view wx:for="{{recordList}}" class="record clearfix">
-        <text class="record_time fl">{{item.time}}</text>
-        <text class="record_price fr">{{item.money}}</text>
+    <view wx:for="{{recordList}}" class="record clearfix" wx:key="{{index}}">
+        <text class="record_time fl">{{item.creationTime}}</text>
+        <text class="record_price fr">{{item.shouldPayAmount}}</text>
     </view>
 </view>

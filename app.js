@@ -5,30 +5,43 @@ import allreq from './request/allrequest'
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    console.log('-------------')
+    wx.setStorageSync('shopID', 1)
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     // 登录
+    // wx.showLoading({
+    //   title:'加载中...'
+    // })
     wx.login({
       success: res => {
-        // console.log(res);
+        
+        console.log(res);
+        // wx.showToast({
+        //   icon:'none',
+        //   title:res.code,
+        //   mask: 4000
+        // })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        this.getOpenID(res.code)
-        this.getShopID();
+        // this.getOpenID(res.code)
+        // this.getUserInfo();
+        // this.getShopID();
         // this.getUserID();
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              // console.log(res);
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
               this.saveUserInfo(res.userInfo)
+              wx.setStorageSync('userInfo', res.userInfo);
               // console.log(this.globalData.userInfo)
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -38,7 +51,14 @@ App({
               }
             }
           })
+        } else {
+          wx.redirectTo({
+            url: '../login/login',
+          })
         }
+      },
+      fail: function(err){
+        console.log(err)
       }
     })
   },
@@ -56,28 +76,19 @@ App({
           'content-type': 'application/json'
       },
       success: function(res) {
-        // console.log(res)
         wx.setStorageSync('openID', res.data.openid)
         that.allreq.setOpenID(res.data.openid).then(res => {
           // console.log(res)
         })
         that.allreq.getUserID(res.data.openid).then(res => {
-          // console.log(res)
           that.getUserID(res.result)
-          
+          wx.setStorageSync('userID', res.result)          
         })
         // that.getToken()
         // openid = res.data.openid //返回openid
       }
     })
   },
-
-  // 根据openID获取userID
-  // getUserID (openID) {
-  //   that.allreq.getUserID(openID).then(res => {
-  //     console.log(res)
-  //   })
-  // },
   
   // 获取access_token
   getToken() {

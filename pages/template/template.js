@@ -17,7 +17,7 @@ function tabbarinit() {
         },
         {
             "current": 0,
-            "pagePath": "/pages/order/list/list",
+            "pagePath": "/pages/shop/list/list",
             "iconPath": "/images/order_01.png",
             "selectedIconPath": "/images/order_02.png",
             "text": "订单"

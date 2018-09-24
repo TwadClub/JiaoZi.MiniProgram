@@ -88,12 +88,12 @@
   .sku {
     position: absolute;
     right: 5%;
-    bottom: 22rpx;
+    bottom: 15rpx;
   }
   .sku-price {
     color: #ff9600;
     position: relative;
-    margin-top: 45rpx;
+    margin-top: 35rpx;
   }
   .price {
     color: #ff9600;
@@ -252,4 +252,23 @@
     margin-top: 20rpx;
     font-size: 32rpx;
     color: #666;
+}
+
+.empty{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+}
+.logo{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+.tips{
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 20rpx;
+    display: block;
 }

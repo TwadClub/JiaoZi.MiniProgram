@@ -1,12 +1,13 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+function formatTime  (date,format) {
+  let newDate = new Date(date)
+  const year = newDate.getFullYear()
+  const month = newDate.getMonth() + 1
+  const day = newDate.getDate()
+  const hour = newDate.getHours()
+  const minute = newDate.getMinutes()
+  const second = newDate.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join(format) + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -14,6 +15,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function phoneCheck(phone) {
+  return new RegExp("^1[3|4|5|7|8][0-9]{9}$").test(phone);
+} 
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  phoneCheck: phoneCheck
 }

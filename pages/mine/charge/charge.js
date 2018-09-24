@@ -8,13 +8,17 @@ Page({
      */
     data: {
       chargeList: [],
-      payItem:null
+      payItem:null,
+      shopUserInfo: null
     },
   
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      wx.showLoading({
+        title: '加载中',
+      })
       wx.setNavigationBarTitle({
         title: '充值'
       })
@@ -23,6 +27,7 @@ Page({
       })
       let shopID = wx.getStorageSync('shopID');
       console.log(shopID)
+      this.getShopUserInfo();
       this.chargeMoney(shopID);
       
     },
@@ -50,6 +55,7 @@ Page({
     chargeMoney (shopID) {
       app.allreq.chargeMoney(shopID).then( res => {
         console.log(res)
+        wx.hideLoading()
         if (res.success) {
           res.result.map((item,i)=> {
             if (i ==0) {
@@ -95,11 +101,31 @@ Page({
         'paySign': res.paySign,
         'success':function(res){
           console.log(res);
+          wx.redirectTo({
+            url: '../chargerecord/chargerecord',
+          })
         },
-        'fail':function(res){},
+        'fail':function(res){
+          wx.redirectTo({
+            url: '../chargerecord/chargerecord',
+          })
+        },
         'complete':function(res){}
         })
     },
+
+    // 用户账户余额
+    getShopUserInfo() {
+      app.allreq.getShopUserInfo().then( res => {
+        console.log(res);
+        if (res.success) {
+          this.setData({
+            shopUserInfo: res.result
+          })
+        }
+      })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

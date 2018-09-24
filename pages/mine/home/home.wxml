@@ -1,32 +1,32 @@
 <import src="../../template/template.wxml"/>
 <template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
-<view class="mine">
+<view class="mine" wx:if="show">
   <view class="mine_top clearfix">
     <image class="mine_logo fl" src="{{userInfo.avatarUrl}}"></image>
     <text class="mine_name fl">{{userInfo.nickName}}</text>
   </view>
-  <view class="row mine_class">
+  <view class="row mine_class" wx:if="{{shopUserInfo.isVip}}">
     <view class="col item_class">
-      <text class="int">350</text>
+      <text class="int">{{shopUserInfo.balanceAmount}}</text>
       <text class="txt">余额</text>
     </view>
     <view class="col item_class">
-      <text class="int">350</text>
+      <text class="int">{{shopUserInfo.vipData}}</text>
       <text class="txt">会员日</text>
     </view>
     <view class="col item_class">
-      <text class="int">350</text>
+      <text class="int">{{shopUserInfo.discount}}</text>
       <text class="txt">折扣</text>
     </view>
   </view>
   <view class="column mine_type">
-    <view class="col item_type">
+    <!-- <view class="col item_type">
       <view class="type_con">
         <image class="scan" src="{{imgUrl+'icon-scan.png'}}"></image>
       </view>
       <text class="mine_type_title">扫码支付</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
-    </view>
+    </view> -->
     <view class="col item_type" bindtap="goCharge">
       <view class="type_con">
         <image class="charge" src="{{imgUrl+'icon-charge.png'}}"></image>
@@ -41,11 +41,18 @@
       <text class="mine_type_title">充值记录</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
     </view>
-    <view class="col item_type">
+    <view class="col item_type" bindtap="chooseAddress">
       <view class="type_con">
         <image class="addre" src="{{imgUrl+'icon-addre.png'}}"></image>
       </view>
       <text class="mine_type_title">收货地址</text>
+      <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
+    </view>
+    <view class="col item_type" bindtap="consumeList">
+      <view class="type_con">
+        <image class="charge" src="{{imgUrl+'icon-charge.png'}}"></image>
+      </view>
+      <text class="mine_type_title">消费记录</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
     </view>
 
