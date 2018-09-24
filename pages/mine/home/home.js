@@ -31,7 +31,7 @@ Page({
       userInfo: wx.getStorageSync('userInfo')
     })
     console.log(wx.getStorageSync('userInfo'));
-    this.getShopUserInfo();
+    
   },
 
   // 跳充值页面
@@ -85,6 +85,7 @@ Page({
 
   onShow:function(){
     console.log(wx.getStorageSync('userInfo'));
+    this.getShopUserInfo();
     this.setData({
       userInfo: wx.getStorageSync('userInfo')
     })

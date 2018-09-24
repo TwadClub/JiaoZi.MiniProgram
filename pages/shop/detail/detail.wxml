@@ -1,0 +1,100 @@
+<!--pages/order/detail/detail.wxml-->
+<view class="sureorder">
+    <view class="order_info">
+        <view class="order_info_tips clearfix">
+            <text class="fl shop_tips">{{orderDetail.orderCode}}</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 60}}">已完成</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 10}}">待支付</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == -10 || orderDetail.orderStatus == -20}}">已取消</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 20}}">已支付</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 30}}">待接单</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 40}}">配送中</text>
+            <text class="fr order_txt" wx:if="{{orderDetail.orderStatus == 50}}">已送达</text>
+        </view>
+        <scroll-view class="scroll" scroll-y="true">
+            <view class="order_info_list clearfix" wx:for="{{orderDetail.orderDetails}}" wx:key="{{index}}">
+                <image class="item_logo fl" src="{{item.logo}}"></image>
+                <view class="column fl">
+                    <text class="title">{{item.productName}}</text>
+                    <text class="tips">￥{{item.price}}x{{item.count}}</text>
+                    <view class="order_info_list_price">
+                        <text class="sku-price">￥</text>
+                        <text class="sku-price">{{item.payAmount}}</text>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="order_info_discount">
+            <view class="discount clearfix">
+                <text class="fl">商品金额</text>
+                <text class="fr">￥{{orderDetail.orderAmount}}</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl" wx:if="{{orderDetail.discount !== 0}}">优惠(会员日{{orderDetail.discount}}折)</text>
+                <text class="fl">优惠(会员日不打折)</text>
+                <text class="fr sub_price">-￥{{orderDetail.discountAmount}}</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl">配送费</text>
+                <text class="fr">￥{{orderDetail.sendAmount}}</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl">餐盒费</text>
+                <text class="fr">￥{{orderDetail.packageAmount}}</text>
+            </view>
+        </view>
+        <view class="all_price">
+            <text class="font_nol">小计：</text>
+            <text class="sub_price font_price">￥{{orderDetail.shouldPayAmount}}</text>
+        </view>
+    </view>
+    <view class="send_info">
+        <text class="model_title">配送信息</text>
+        <view class="model_content">
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">送达时间:</text>
+                <text class="fl model_content_txt">{{orderDetail.wantReceiveTime}}</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">收货地址:</text>
+                <view class="model_content_txt fl">
+                    <text class="client_name">{{orderDetail.receiveName}} {{orderDetail.receivePhone}}</text>
+                    <text class="client_address">{{orderDetail.sendAddress}}</text>
+                </view>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">配送方式</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.sendWay == 1}}">在线配送</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.sendWay == 2}}">到店自取</text>
+            </view>
+        </view>
+    </view>
+    <view class="send_info">
+        <text class="model_title">订单信息</text>
+        <view class="model_content">
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">订单号码:</text>
+                <text class="fl model_content_txt">{{orderDetail.orderCode}}</text>
+                <text class="fr copy" bindtap="copyOrderNO">复制</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">下单时间</text>
+                <text class="fl model_content_txt">{{orderDetail.creationTime}}</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">支付方式</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.payWay == 1 && (orderDetail.orderStatus == 60 || orderDetail.orderStatus == 20 || orderDetail.orderStatus == 30 || orderDetail.orderStatus == 40 || orderDetail.orderStatus == 50)}}">在线支付</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.payWay == 2 && (orderDetail.orderStatus == 60 || orderDetail.orderStatus == 20 || orderDetail.orderStatus == 30 || orderDetail.orderStatus == 40 || orderDetail.orderStatus == 50)}}">扫描支付</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.orderStatus == -20 || orderDetail.orderStatus == -10 || orderDetail.orderStatus == 10}}">未支付</text>
+            </view>
+            <view class="discount clearfix">
+                <text class="fl model_content_lab">订单备注</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.remark == ''}}">无</text>
+                <text class="fl model_content_txt" wx:if="{{orderDetail.remark !== ''}}">{{orderDetail.remark}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="pay_model" wx:if="{{orderDetail.orderStatus== 10}}">
+        <text class="pay" bindtap="wxCharge">去支付</text>
+    </view>
+</view>

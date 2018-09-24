@@ -1,0 +1,40 @@
+<!--pages/order/list/list.wxml-->
+<import src="../../template/template.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
+<view class="order_content" wx:if="{{!isEmpty}}">
+<view class="order_list" wx:for="{{list}}" wx:key="{{index}}">
+  <view class="order_top clearfix">
+    <image class="logo fl" src="{{item.orderDetails[0].logo}}"></image>
+    <view class="info fl" bindtap="pageChange" data-item="{{item}}">
+      <view class="info_title">
+        <text class="info_title_tip">{{item.orderCode}}</text>
+        <image class="info_title_logo" src="{{ imgUrl +'arrow-r-gray.png'}}"></image>
+      </view>
+      <text class="info_time">{{item.creationTime}}</text>
+    </view>
+    <text class="order_status fr" wx:if="{{item.orderStatus== 10}}">待支付</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 60}}">已完成</text>
+    <text class="order_status cel fr" wx:if="{{item.orderStatus== -20 || item.orderStatus== -10}}">已取消</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 20}}">已支付</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 30}}">待接单</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 40}}">配送中</text>
+    <text class="order_status done fr" wx:if="{{item.orderStatus== 50}}">已送达</text>
+  </view>
+  <view class="order_center clearfix">
+    <text class="goodsinfo fl">{{item.orderDetails[0].productName}}等{{item.orderDetails.length}}件商品</text>
+    <text class="price fr">￥{{item.shouldPayAmount}}</text>
+  </view>
+  <view class="order_center clearfix">
+    <!-- <text class="operate_btn fr " wx:if="{{item.orderStatus== -20}}"  >再来一单</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== -10}}">再来一单</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 20}}">再来一单</text>
+    <text class="operate_btn fr" wx:if="{{item.orderStatus== 60}}">再来一单</text> -->
+    <text class="operate_btn fr active" wx:if="{{item.orderStatus== 10}}" bindtap="wxCharge">待支付</text>
+  </view>
+</view>
+</view>
+
+<view class="empty" wx:if="{{isEmpty}}">
+  <image class="logo" mode="widthFix" src="{{ imgUrl + 'icon-order-empty.png'}}"></image>
+  <text class="tips">亲，您还没有订单哦～</text>
+</view>
