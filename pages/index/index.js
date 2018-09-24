@@ -33,6 +33,7 @@ Page({
     }, 1000)
     this.getIndexClass();
 
+
   },
   golist: function () {
     wx.navigateTo({
@@ -188,7 +189,6 @@ Page({
   onShow: function () {
     console.log('show')
     this.initIndexCar();
-
     // wx.hideLoading();
   },
 

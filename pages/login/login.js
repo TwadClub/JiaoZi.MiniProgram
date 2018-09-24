@@ -26,12 +26,23 @@ Page({
                         },
                         success: function(res) {
                           wx.setStorageSync('openID', res.data.openid)
-                          app.allreq.getUserID(res.data.openid).then(res => {
-                            console.log(res);
-                            wx.setStorageSync('userID', res.result)          
-                          })
                           // that.getToken()
-                          // openid = res.data.openid //返回openid
+                          wx.showToast({
+                                title: res.data.openid,
+                                icon: 'none',
+                                duration: 10000
+                          })
+                          app.allreq.getUserID(res.data.openid).then(res => {
+                            wx.showToast({
+                                title: '成功获取userid',
+                                icon: 'none',
+                                duration: 10000
+                          })
+                            wx.setStorageSync('userID', res.result)
+                            // wx.redirectTo({
+                            //     url: '../index/index',
+                            // })
+                          })
                         }
                     })
 
@@ -45,9 +56,7 @@ Page({
                             console.log('获取用户信息失败')
                         }
                     })
-                    wx.redirectTo({
-                        url: '../index/index',
-                    })
+                   
 
                 } else {
                     console.log('获取用户登录态失败！' + r.errMsg)

@@ -31,7 +31,7 @@ Page({
       userInfo: wx.getStorageSync('userInfo')
     })
     console.log(wx.getStorageSync('userInfo'));
-    let str = wx.getStorageSync('userID');
+    let str = wx.getStorageSync('userID').toString();
     wx.showToast({
       icon:'none',
       title:str,
