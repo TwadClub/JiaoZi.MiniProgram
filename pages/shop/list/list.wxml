@@ -29,7 +29,7 @@
     <text class="operate_btn fr" wx:if="{{item.orderStatus== -10}}">再来一单</text>
     <text class="operate_btn fr" wx:if="{{item.orderStatus== 20}}">再来一单</text>
     <text class="operate_btn fr" wx:if="{{item.orderStatus== 60}}">再来一单</text> -->
-    <text class="operate_btn fr active" wx:if="{{item.orderStatus== 10}}" bindtap="wxCharge">待支付</text>
+    <text class="operate_btn fr active" wx:if="{{item.orderStatus== 10}}" bindtap="wxCharge" data-id="{{item.id}}" data-pay="{{item.shouldPayAmount}}">待支付</text>
   </view>
 </view>
 </view>

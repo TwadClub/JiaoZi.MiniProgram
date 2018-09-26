@@ -44,7 +44,6 @@ Page({
   // 初始化首页购物车是否有商品
   initIndexCar() {
     let carGoodsList = wx.getStorageSync('carGoodsList');
-    console.log('carGoodsList:' + carGoodsList)
     let count = 0;
     if (carGoodsList) {
       carGoodsList = JSON.parse(carGoodsList);
@@ -62,7 +61,6 @@ Page({
 
   getIndexGoods(shopID) {
     app.allreq.getIndexGoods(shopID).then(res => {
-      console.log(res);
       wx.hideLoading()
       if (res.success) {
         this.setData({
@@ -74,7 +72,6 @@ Page({
   getIndexClass() {
     app.allreq.getIndexClass().then(res => {
       if (res.success) {
-        console.log(res.result)
         this.setData({
           indexClass: res.result
         })
@@ -113,7 +110,6 @@ Page({
     // console.log(newGoodID)
     if (this.data.carGoodsList.length) {
       let bool = this.isAdd(this.data.carGoodsList, newGoodID);
-      console.log(bool)
       if (bool) {
         for (let i in this.data.carGoodsList) {
           if (this.data.carGoodsList[i].id == newGoodID) {
@@ -140,7 +136,6 @@ Page({
     this.data.carGoodsList.map(item => {
       allCount += item.count
     })
-    console.log(allCount)
     this.setData({
       carGoodsList: this.data.carGoodsList,
       carGoodsCount: allCount
@@ -168,7 +163,6 @@ Page({
   /**切換到点餐页面 */
   pageToOrder(e) {
     let item = e.currentTarget.dataset.item;
-    console.log(item);
     wx.navigateTo({
       url: '../shop/order/order?ProductName=' + item.categoryName + "&ProductCategoryID=" + item.id,
     })
@@ -177,7 +171,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('ready')
     this.setData({
       show: true
     })
@@ -187,7 +180,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('show')
     this.initIndexCar();
     // wx.hideLoading();
   },

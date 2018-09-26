@@ -95,10 +95,18 @@ Page({
     this.data.goodsDiscount.goodsPrice = 0;
     this.data.goodsDiscount.packagePrice = 0;
     console.log(goodsIDList)
+    let that = this;
     app.allreq.getGoodsPriceInfo(params).then(res => {
-      console.log(res);
       if (res.success) {
-        
+        goodsIDList.map(item => {
+          res.result.productPriceDtoList.map(it => {
+            if (item.id == it.id) {
+              it.quality = item.count
+            }
+          })
+        })
+        console.log(res.result.productPriceDtoList);
+
         this.data.goodsDiscount.sendPrice = res.result.sendPrice;
         if (res.result.productPriceDtoList.length) {
           res.result.productPriceDtoList.map(item => {
@@ -108,6 +116,7 @@ Page({
         }
         // console.log(this.data.goodsDiscount)
         this.isVipDate();
+        this.data.goodsDiscount.goodsPrice  = this.data.goodsDiscount.goodsPrice.toFixed(2);
         this.setData({
           goodsList: res.result.productPriceDtoList,
           goodsDiscount: this.data.goodsDiscount
@@ -123,14 +132,14 @@ Page({
       if (res.success) {
         this.data.goodsDiscount.discount = res.result.discount;
         if (res.result.discount !== 0) {
-          this.data.goodsDiscount.discountPrice = this.data.goodsDiscount.goodsPrice * this.data.goodsDiscount.discount
+          this.data.goodsDiscount.discountPrice = Number(this.data.goodsDiscount.goodsPrice) * this.data.goodsDiscount.discount
         } else {
           this.data.goodsDiscount.discountPrice = 0
         }
-        this.data.orderPrice = this.data.goodsDiscount.goodsPrice + this.data.goodsDiscount.packagePrice + this.data.goodsDiscount.sendPrice - this.data.goodsDiscount.discountPrice 
+        this.data.orderPrice = Number(this.data.goodsDiscount.goodsPrice) + this.data.goodsDiscount.packagePrice + this.data.goodsDiscount.sendPrice - this.data.goodsDiscount.discountPrice 
         this.setData({
           goodsDiscount: this.data.goodsDiscount,
-          orderPrice: this.data.orderPrice
+          orderPrice: Number(this.data.orderPrice.toFixed(2))
         })
       }
     })
@@ -180,7 +189,9 @@ Page({
           params.receivePhone = that.data.addressInfo.phone;
 
         } else {
-
+          params.sendAddress = "";
+          params.receiveName = "";
+          params.receivePhone = "";
         }
         params.sendWay = that.data.sendWay;
         params.payWay = that.data.payWay;
@@ -324,6 +335,7 @@ Page({
     if (addressInfoID) {
       this.getAddressInfo(addressInfoID);
     }
+    
   },
 
   /**

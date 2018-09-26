@@ -1,5 +1,7 @@
 /* pages/shop/sureorder/sureorder.wxss*/
-
+page{
+    height: 100%;
+}
 .clearfix:after {
     height: 0rem;
     display: block;
@@ -231,7 +233,7 @@
     color: #454545;
 }
 .discount text.lab_txt{
-    width: 60%;
+    width: 50%;
 }
 .sub_price{
     color: #ff9600;

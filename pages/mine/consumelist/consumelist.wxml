@@ -1,6 +1,6 @@
 <view class="chargerecord">
     <view wx:for="{{consumeList}}" class="record clearfix" wx:key="{{index}}">
         <text class="record_time fl">{{item.creationTime}}</text>
-        <text class="record_price fr">{{item.remark}}</text>
+        <text class="record_price fr">{{item.changeAmount}}元 ( {{item.remark}} )</text>
     </view>
 </view>

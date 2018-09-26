@@ -39,7 +39,7 @@ Page({
         wx.hideLoading();
         if (res.success) {
           res.result.map(item => {
-            item.creationTime = util.formatTime(item.creationTime,'-')
+            // item.creationTime = util.formatTime(item.creationTime,'-')
           })
           this.setData({
             recordList: res.result

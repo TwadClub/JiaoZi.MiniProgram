@@ -1,0 +1,8 @@
+<view class="paysuccess">
+    <view class="pay_con">
+        <image class="" src="../../../../images/icon-success.png"></image>
+        <view class="pay_price">支付成功！</view>
+        <view class="pay_price">{{payInfo.payAmount}}元</view>
+    </view>
+    <view class="pay_time">{{payInfo.payTime}}</view>
+</view>

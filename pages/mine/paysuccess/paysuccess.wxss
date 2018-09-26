@@ -1,0 +1,18 @@
+.pay_con{
+    margin: 80rpx 5%;
+    text-align: center;
+}
+.pay_con image{
+    width: 120rpx;
+    height: 120rpx;
+}
+.pay_price{
+    font-size: 28rpx;
+    color: #454545;
+    margin: 40rpx 0;
+}
+.pay_time{
+    text-align: center;
+    font-size: 28rpx;
+    color: #454545;
+}

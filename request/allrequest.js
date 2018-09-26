@@ -44,47 +44,6 @@ class agriknow {
     return this._request.getRequest(this._baseUrl + '/api/services/app/WX/GetUserInfo', data).then(res => res.data)
   }
 
-  /**
-   * 换取userID
-   */
-  setUserID() {
-    let data = {
-      openID: wx.getStorageSync('openID'),
-    }
-    let that = this;
-      wx.request({
-        url: this._baseUrl + '/api/services/app/WX/GetUserInfo',
-        data: data,
-        header: this._defaultHeader,
-        method: "GET",
-        success: (res => {
-          if (res.statusCode === 200) {
-            //200: 服务端业务处理正常结束
-            // resolve(res)
-            console.log(res)
-            return that.setBack(res.data.result)
-          } else {
-            //其它错误，提示用户错误信息
-            if (this._errorHandler != null) {
-            //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
-              this._errorHandler(res)
-            }
-            // reject(res)
-          }
-        }),
-        fail: (res => {
-          if (this._errorHandler != null) {
-            this._errorHandler(res)
-          }
-          // reject(res)
-        })
-      })
-  }
-
-  setBack(userID) {
-    return userID
-  }
-
   // 首页接口
   /**
    * 获取首页推荐商品
@@ -129,12 +88,12 @@ class agriknow {
    let url = ''
    let data = {
       "sendWay": params.sendWay,
-      "sendAddress": params.sendAddress,
+      "sendAddress": params.sendAddress?params.sendAddress:' ',
       "jd": 0,
       "wd": 0,
-      "receiveName": params.receiveName,
-      "receivePhone": params.receivePhone,
-      "remark": "string",
+      "receiveName": params.receiveName?params.receiveName:" ",
+      "receivePhone": params.receivePhone?params.receivePhone:" ",
+      "remark": "",
       "wantReceiveTime": params.wantReceiveTime,
       "shopID": wx.getStorageSync('shopID'),
       "userID": wx.getStorageSync('userID'),
@@ -312,6 +271,25 @@ class agriknow {
       shopID: params.shopID
     }
     return this._request.getRequest(this._baseUrl + '/api/services/app/ShopUserAppService/GetUserAccountChangeLog', data).then(res => res.data)
+  }
+
+  // code 换取openID
+  getOpenIDFrom (code) {
+    let params = {
+      code: code
+    }
+    return this._request.getRequest(this._baseUrl + '/api/services/app/WX/GetUserWXInfo', params).then(res => res.data)
+  }
+
+  // 发起账户余额支付
+  setBalancePay (amount) {
+    let data = {
+      userID: wx.getStorageSync('userID'),
+      shopID: wx.getStorageSync('shopID'),
+      amount: amount,
+      openID: wx.getStorageSync('openID'),
+    }
+    return this._request.postRequest(this._baseUrl + '/api/services/app/ShopUserAppService/RechargePay', data).then(res => res.data)
   }
 
 }

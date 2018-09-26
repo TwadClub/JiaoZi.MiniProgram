@@ -32,11 +32,6 @@ Page({
     })
     console.log(wx.getStorageSync('userInfo'));
     let str = wx.getStorageSync('userID').toString();
-    wx.showToast({
-      icon:'none',
-      title:str,
-      mask: 4000
-    })
   },
 
   // 跳充值页面
@@ -64,6 +59,13 @@ Page({
   consumeList() {
     wx.navigateTo({
       url: '../consumelist/consumelist'
+    })
+  },
+
+  // 去支付
+  goPay() {
+    wx.navigateTo({
+      url: '../pay/pay'
     })
   },
 

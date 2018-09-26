@@ -39,16 +39,16 @@
         <text class="address_btn">+添加收货地址</text>
     </view>
     <view class="order_info">
-        <text class="order_info_tips">袁记水饺（楚河汉街店）</text>
+        <!-- <text class="order_info_tips">袁记水饺（楚河汉街店）</text> -->
         <scroll-view class="scroll" scroll-y="true">
             <view class="order_info_list clearfix" wx:for="{{goodsList}}" wx:key="{{index}}">
                 <image class="item_logo fl" src="{{item.logo}}"></image>
                 <view class="column fl">
                     <text class="title">{{item.productTitle}}</text>
-                    <text class="tips">{{item.remark}}</text>
+                    <text class="tips">*{{item.quality}}</text>
                     <view class="order_info_list_price">
                         <text class="sku-price">￥</text>
-                        <text class="sku-price">{{item.salePrice}}</text>
+                        <text class="sku-price">{{item.salePrice}}/份</text>
                     </view>
                 </view>
             </view>
@@ -78,7 +78,7 @@
         </view>
     </view>
     <view class="remark">
-        <text>添加订单备注</text>
+        <!-- <text>添加订单备注</text> -->
     </view>
     <view class="footer" hover-class="none" hover-stop-propagation="false">
         <view class="price fl" hover-class="none" hover-stop-propagation="false">

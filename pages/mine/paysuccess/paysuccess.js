@@ -8,35 +8,42 @@ Page({
      * 页面的初始数据
      */
     data: {
-      consumeList:[]
+      payInfo:{},
     },
   
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      wx.showLoading({
-        title: '加载中'
-      })
+    //   wx.showLoading({
+    //     title: '加载中'
+    //   })
       wx.setNavigationBarTitle({
-        title: '消费记录'
+        title: '支付成功'
       })
     },
 
-    // 获取消费记录列表
-    getConsumeList(params) {
-      app.allreq.getConsumeList(params).then( res => {
-        console.log(res);
-        wx.hideLoading();
-        if (res.success) {
-          res.result.map(item => {
-            // item.creationTime = util.formatTime(item.creationTime,'-')
-          })
-          this.setData({
-            consumeList: res.result
-          })
-        }
-      })
+    // 改变价格
+    changepayPrice(e) {
+        console.log(e)
+        this.setData({
+            payPrice: e.detail.value
+        })
+    },
+
+    // 点击支付
+    surePay() {
+        wx.showLoading({
+            title:'加载中...',
+        })
+        app.allreq.setBalancePay(this.data.payPrice).then(res => {
+            console.log(res);
+            if (res.success) {
+                wx.navigateTo({
+                    url: 'String',
+                })
+            }
+        })
     },
     
     /**
@@ -50,11 +57,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      let params = {
-        shopID: wx.getStorageSync('shopID'),
-        userID: wx.getStorageSync('userID')
-      }
-      this.getConsumeList(params);
+        this.data.payInfo = wx.getStorageSync('paySuccess');
+        if (this.data.payInfo) {
+            this.data.payInfo = JSON.parse(this.data.payInfo);
+        }
+        this.setData({
+            payInfo: this.data.payInfo
+        })
     },
   
     /**

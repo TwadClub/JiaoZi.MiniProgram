@@ -26,6 +26,7 @@ App({
         // })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         // this.getOpenID(res.code)
+        this.getOpenIDFrom(res.code)
         // console.log(that.allreq.setUserID())
         
        
@@ -34,6 +35,7 @@ App({
         // this.getUserID();
       }
     })
+  
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -69,6 +71,16 @@ App({
     userInfo: null
   },
 
+
+  // 换取openid 后台
+  getOpenIDFrom(code) {
+    this.allreq.getOpenIDFrom(code).then(res => {
+      console.log(res);
+      wx.setStorageSync('openID', res.result.openid)
+      wx.setStorageSync('userID', res.result.userID)
+    })
+  },
+
   //获取openid
   getOpenID(code) {
     let that = this;
@@ -79,16 +91,9 @@ App({
           'content-type': 'application/json'
       },
       success: function(res) {
+        console.log(res);
         wx.setStorageSync('openID', res.data.openid)
-        that.allreq.setOpenID(res.data.openid).then(res => {
-          // console.log(res)
-        })
-        that.allreq.getUserID(res.data.openid).then(res => {
-          that.getUserID(res.result)
-          wx.setStorageSync('userID', res.result)          
-        })
-        // that.getToken()
-        // openid = res.data.openid //返回openid
+        wx.setStorageSync('userID', res.data.userID)
       }
     })
   },

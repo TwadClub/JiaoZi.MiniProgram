@@ -34,6 +34,13 @@
       <text class="mine_type_title">去充值</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
     </view>
+    <view class="col item_type" bindtap="goPay">
+      <view class="type_con">
+        <image class="charge" src="{{imgUrl+'icon-charge.png'}}"></image>
+      </view>
+      <text class="mine_type_title">去支付</text>
+      <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
+    </view>
     <view class="col item_type" bindtap="chargeRecord">
       <view class="type_con">
         <image class="record" src="{{imgUrl+'icon-record.png'}}"></image>
@@ -55,6 +62,7 @@
       <text class="mine_type_title">消费记录</text>
       <image class="arrow fr" src="{{imgUrl+'arrow-r-gray.png'}}"></image>
     </view>
+
 
   </view>
 </view>

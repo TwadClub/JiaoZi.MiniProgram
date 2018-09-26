@@ -1,0 +1,42 @@
+page{
+    height: 100%;
+}
+.pay_con{
+    background: #fff;
+    margin: 50rpx 5%;
+}
+.pay_con text{
+    font-size: 32rpx;
+    color: #454545;
+    width: 25%;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.pay_con input{
+    width: 75%;
+    border: 1rpx solid #e1e1e1;
+    box-sizing: border-box;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    border-radius: 5rpx;
+    padding: 15rpx 15rpx;
+}
+.pay_tips{
+    font-size: 28rpx;
+    color: red;
+    width: 90%;
+    margin: 0 auto;
+}
+.pay_btn{
+    width: 90%;
+    margin: 50rpx auto;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    background: #6dc135;
+    font-size: 32rpx;
+    text-align: center;
+    display: block;
+    border-radius: 5rpx;
+}

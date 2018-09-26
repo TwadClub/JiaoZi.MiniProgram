@@ -160,6 +160,16 @@ Page({
         allNum: this.data.allNum,
         orderDataList: this.data.orderDataList
       })
+      let attr = [];
+      this.data.cartArr.map(item => {
+        let obj = {
+          id: item.id,
+          isChecked: item.isChecked,
+          count: item.quality
+        }
+        attr.push(obj);
+      })
+      wx.setStorageSync('carGoodsList', JSON.stringify(attr));
       this.getAllPrice()
     },
 
@@ -187,6 +197,18 @@ Page({
       this.setData({
         cartArr: this.data.cartArr,
       })
+      console.log(this.data.cartArr)
+      let attr = [];
+      this.data.cartArr.map(item => {
+        let obj = {
+          id: item.id,
+          isChecked: item.isChecked,
+          count: item.quality
+        }
+        attr.push(obj);
+      })
+      wx.setStorageSync('carGoodsList', JSON.stringify(attr));
+      // wx.setStorageSync('carGoodsList', JSON.stringify(this.data.orderDataList))
       this.getAllPrice()
     },
 

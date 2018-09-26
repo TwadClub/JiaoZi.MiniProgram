@@ -1,0 +1,8 @@
+<view class="pay">
+    <view class="pay_con clearfix">
+        <text class="fl">支付金额：</text>
+        <input type="text" class="input fl" placeholder="" value="{{payPrice}}" bindblur='changepayPrice'/>
+    </view>
+    <view class="pay_tips">提示:此操作将会扣除账户余额，请谨慎操作</view>
+    <button class="pay_btn" bindtap="surePay">确定支付</button>
+</view>
