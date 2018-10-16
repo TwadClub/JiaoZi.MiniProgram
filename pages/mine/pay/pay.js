@@ -9,6 +9,7 @@ Page({
      */
     data: {
       payPrice:Number,
+      payFlag: true
     },
   
     /**
@@ -33,27 +34,32 @@ Page({
 
     // 点击支付
     surePay() {
-        wx.showLoading({
-            title:'加载中...',
-        })
-        console.log(this.data.payPrice)
-        let that = this;
-        setTimeout(function(){
-            app.allreq.setBalancePay(that.data.payPrice).then(res => {
-                console.log(res);
-                wx.hideLoading()
-                if (res.success) {
-                    let obj = {
-                        payTime:res.result.payTime,
-                        payAmount: res.result.payAmount,
-                    }
-                    wx.setStorageSync('paySuccess', JSON.stringify(obj))
-                    wx.navigateTo({
-                        url: '../paysuccess/paysuccess',
-                    })
-                }
+        let that = this; 
+        if (this.data.payFlag) {
+            wx.showLoading({
+                title:'加载中...',
             })
-        },300)
+            that.setData({
+                payFlag: false,
+            })
+            setTimeout(function(){
+                console.log(that.data.payPrice)
+                app.allreq.setBalancePay(that.data.payPrice).then(res => {
+                    console.log(res);
+                    wx.hideLoading()
+                    if (res.success) {
+                        let obj = {
+                            payTime:res.result.payTime,
+                            payAmount: res.result.payAmount,
+                        }
+                        wx.setStorageSync('paySuccess', JSON.stringify(obj))
+                        wx.navigateTo({
+                            url: '../paysuccess/paysuccess',
+                        })
+                    }
+                })
+            },600)
+        }
     },
     
     /**
@@ -67,7 +73,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log('onshow')
+        this.setData({
+            payFlag: true
+        })
     },
   
     /**
